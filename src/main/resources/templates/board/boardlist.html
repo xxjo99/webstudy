@@ -19,14 +19,30 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragments/common :: menu('board')}">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
+        th:replace="~{fragments/common :: menu('board')}">
     </nav>
 
     <div class="container">
         <h2>게시판</h2>
 
-        <div>총 건수 : <span th:text="${#lists.size(boardList)}"></span></div>
+        <!-- 게시물 개수 -->
+        <div>총 건수 : <span th:text="${boardList.totalElements}"></span></div>
 
+        <!-- 검색 -->
+        <form class="form-inline d-flex justify-content-end" method="GET" th:action="@{/board/list}">
+
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="searchText" class="sr-only">검색</label>
+                <input type="text" class="form-control" id="searchText" name="searchText"
+                    th:value="${param.searchText}">
+            </div>
+
+            <button type="submit" class="btn btn-light mb-2">검색</button>
+
+        </form>
+
+        <!-- 게시물 -->
         <table class="table table-striped">
 
             <thead>
@@ -41,12 +57,36 @@
                 <tr th:each="board : ${boardList}">
                     <td th:text="${board.boardId}">번호</td>
                     <td><a th:text="${board.title}" th:href="@{/board/form(boardId=${board.boardId})}">제목</a></td>
-                    <td th:text="${board.author}">작성자</td>
+                    <td th:text="${board.user}">작성자</td>
                 </tr>
             </tbody>
 
         </table>
 
+        <!-- 페이징 -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+
+                <li class="page-item" th:classappend="${1 == boardList.pageable.pageNumber + 1} ? 'disabled'">
+                    <a class="page-link" href="#"
+                        th:href="@{/board/list(page=${boardList.pageable.pageNumber - 1},searchText=${param.searchText})}">Previous</a>
+                </li>
+
+                <li class="page-item" th:classappend="${i == boardList.pageable.pageNumber + 1} ? 'disabled'"
+                    th:each="i : ${#numbers.sequence(startPage, endPage)}">
+                    <a class="page-link" href="#" th:href="@{/board/list(page=${i - 1},searchText=${param.searchText})}" th:text="${i}">page</a>
+                </li>
+
+                <li class="page-item"
+                    th:classappend="${boardList.totalPages == boardList.pageable.pageNumber + 1} ? 'disabled'">
+                    <a class="page-link" href="#"
+                        th:href="@{/board/list(page=${boardList.pageable.pageNumber + 1},searchText=${param.searchText})}">Next</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <!-- 게시글 등록 -->
         <div class="text-right">
             <a type="button" class="btn btn-primary" th:href="@{/board/form}">등록</a>
         </div>

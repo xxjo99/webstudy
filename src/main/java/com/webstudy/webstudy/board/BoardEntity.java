@@ -1,9 +1,7 @@
 package com.webstudy.webstudy.board;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Entity
@@ -23,5 +21,5 @@ public class BoardEntity {
     @NotNull
     private String content;
 
-    private String author;
+    private String user;
 }

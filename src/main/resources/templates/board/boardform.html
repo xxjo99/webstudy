@@ -27,6 +27,7 @@
 
         <h2>게시판</h2>
 
+        <!-- 제목 -->
         <form action="#" th:action="@{/board/form}" th:object="${board}" method="post">
             <input type="hidden" th:field="*{boardId}">
 
@@ -43,6 +44,7 @@
 
             </div>
 
+            <!-- 내용 -->
             <div class="form-group">
 
                 <label for="content">내용</label>
@@ -56,10 +58,10 @@
 
             </div>
 
+            <!-- 게시글 등록, 취소 버튼-->
             <div class="text-right">
 
                 <a type="button" class="btn btn-primary" th:href="@{/board/list}">취소</a>
-
                 <button type="submit" class="btn btn-primary">확인</button>
 
             </div>
