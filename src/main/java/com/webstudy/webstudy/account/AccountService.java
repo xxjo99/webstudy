@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AccountService {
 
@@ -13,6 +15,7 @@ public class AccountService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    // 유저 저장
     public void saveUser(UserEntity user) {
         // 패스워드 암호화
         String encodedPassword = passwordEncoder.encode(user.getPassword());
@@ -28,5 +31,19 @@ public class AccountService {
         userRepository.save(user);
     }
 
+    // 모든 유저 조회
+    public List<UserEntity> getUserList() {
+        return userRepository.findAll();
+    }
+
+    // 아이디를 통해 특정 유저 조회
+    public UserEntity getUserByUserId(Long userId) {
+        return userRepository.findByUserId(userId);
+    }
+
+    // 이름을 통해 특정 유저 조회
+    public UserEntity getUserByUserName(String userName) {
+        return userRepository.findByUserName(userName);
+    }
 
 }

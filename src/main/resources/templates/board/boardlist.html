@@ -30,7 +30,7 @@
         <div>총 건수 : <span th:text="${boardList.totalElements}"></span></div>
 
         <!-- 검색 -->
-        <form class="form-inline d-flex justify-content-end" method="GET" th:action="@{/board/list}">
+        <form class="form-inline d-flex justify-content-end" method="GET" th:action="@{/board/boards}">
 
             <div class="form-group mx-sm-3 mb-2">
                 <label for="searchText" class="sr-only">검색</label>
@@ -56,8 +56,10 @@
             <tbody>
                 <tr th:each="board : ${boardList}">
                     <td th:text="${board.boardId}">번호</td>
+
                     <td><a th:text="${board.title}" th:href="@{/board/form(boardId=${board.boardId})}">제목</a></td>
-                    <td th:text="${board.user}">작성자</td>
+
+                    <td th:text="${board.user.userName}">작성자</td>
                 </tr>
             </tbody>
 
@@ -69,18 +71,18 @@
 
                 <li class="page-item" th:classappend="${1 == boardList.pageable.pageNumber + 1} ? 'disabled'">
                     <a class="page-link" href="#"
-                        th:href="@{/board/list(page=${boardList.pageable.pageNumber - 1},searchText=${param.searchText})}">Previous</a>
+                        th:href="@{/board/boards(page=${boardList.pageable.pageNumber - 1},searchText=${param.searchText})}">Previous</a>
                 </li>
 
                 <li class="page-item" th:classappend="${i == boardList.pageable.pageNumber + 1} ? 'disabled'"
                     th:each="i : ${#numbers.sequence(startPage, endPage)}">
-                    <a class="page-link" href="#" th:href="@{/board/list(page=${i - 1},searchText=${param.searchText})}" th:text="${i}">page</a>
+                    <a class="page-link" href="#" th:href="@{/board/boards(page=${i - 1},searchText=${param.searchText})}" th:text="${i}">page</a>
                 </li>
 
                 <li class="page-item"
                     th:classappend="${boardList.totalPages == boardList.pageable.pageNumber + 1} ? 'disabled'">
                     <a class="page-link" href="#"
-                        th:href="@{/board/list(page=${boardList.pageable.pageNumber + 1},searchText=${param.searchText})}">Next</a>
+                        th:href="@{/board/boards(page=${boardList.pageable.pageNumber + 1},searchText=${param.searchText})}">Next</a>
                 </li>
 
             </ul>
