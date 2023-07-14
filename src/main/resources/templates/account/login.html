@@ -18,37 +18,57 @@
 
 </head>
 
-<body class="text-center">
+<body>
+    <section class="vh-100">
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
 
-    <form class="form-signin" th:action="@{/account/login}" method="post">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                        class="img-fluid" alt="Sample image">
+                </div>
 
-        <a th:href="@{/}">
-            <img class="mb-4" src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        </a>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form class="form-signin" th:action="@{/account/login}" method="post">
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                        <!-- 아이디, 비밀번호 오류 -->
+                        <div th:if="${param.error}" class="alert alert-danger" role="alert">
+                            Invalid username and password.
+                        </div>
 
-        <!-- 아이디, 비밀번호 오류 -->
-        <div th:if="${param.error}" class="alert alert-danger" role="alert">
-            Invalid username and password.
+                        <div th:if="${param.logout}" class="alert alert-primary" role="alert">
+                            You have been logged out.
+                        </div>
+
+                        <!-- 아이디 입력 -->
+                        <div class="form-outline mb-4">
+                            <input id="inputUserName" type="text" name="username" class="form-control form-control-lg"
+                                placeholder="Username" required autofocus />
+                        </div>
+
+                        <!-- 패스워드 입력 -->
+                        <div class="form-outline mb-3">
+                            <input id="inputPassword" type="password" name="password"
+                                class="form-control form-control-lg" placeholder="Password" required />
+                        </div>
+
+                        <!-- 로그인, 회원가입 -->
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button type="submit" class="btn btn-primary btn-lg"
+                                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account?
+                                <a class="link-danger" th:href="@{/account/register}">Register</a>
+                            </p>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+
         </div>
-
-        <div th:if="${param.logout}" class="alert alert-primary" role="alert">
-            You have been logged out.
-        </div>
-
-        <!-- 아이디 입력 -->
-        <label for="inputUserName" class="sr-only">Username</label>
-        <input id="inputUserName" type="text" name="username" class="form-control" placeholder="Username" required autofocus>
-
-        <!-- 패스워드 입력 -->
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input id="inputPassword" type="password" name="password" class="form-control" placeholder="Password" required>
-
-        <!-- 로그인 -->
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        
-    </form>
+    </section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -61,6 +81,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>

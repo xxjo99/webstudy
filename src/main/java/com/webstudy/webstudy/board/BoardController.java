@@ -53,7 +53,7 @@ public class BoardController {
 
     // 게시글 등록
     @PostMapping("/form")
-    public String registerBoard(@ModelAttribute("board") @Valid BoardEntity board, BindingResult bindingResult, Authentication authentication) {
+    public String registerBoard(@Valid BoardEntity board, BindingResult bindingResult, Authentication authentication) {
 
         // 입력값 검증
         boardValidator.validate(board, bindingResult);

@@ -26,7 +26,7 @@ public class AccountService {
         RoleEntity role = new RoleEntity();
         role.setRoleId(1L);
         user.getRoleList().add(role);
-        
+
         // 저장
         userRepository.save(user);
     }

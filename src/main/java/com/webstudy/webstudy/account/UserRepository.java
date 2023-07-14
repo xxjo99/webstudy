@@ -13,4 +13,6 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
     UserEntity findByUserId(Long userId); // 유저 아이디를 통해 유저 조회
 
+    boolean existsByUserName(String userName);
+
 }
