@@ -24,7 +24,7 @@ public class BoardController {
 
     // 게시글 조회
     @GetMapping("/boards")
-    public String getBoardList(Model model, @PageableDefault(size = 5) Pageable pageable, @RequestParam(required = false, defaultValue = "") String searchText) {
+    public String getBoardList(Model model, @PageableDefault(size = 10) Pageable pageable, @RequestParam(required = false, defaultValue = "") String searchText) {
         Page<BoardEntity> boardList = boardService.getBoardListWithPaging(searchText, pageable);
 
         int startPage = Math.max(1, boardList.getPageable().getPageNumber() - 4);
@@ -37,13 +37,22 @@ public class BoardController {
         return "/board/boardlist";
     }
 
+    // 게시글 상세페이지 조회
+    @GetMapping("/detail")
+    public String getBoardDetail(Model model, @RequestParam Long boardId) {
+        BoardEntity board = boardService.getBoard(boardId);
+        boardService.increaseView(board); // 게시글 조회수 증가
+        model.addAttribute("board", board);
+        return "/board/boarddetail";
+    }
+
     // 게시글 등록 페이지 이동
     @GetMapping("/form")
     public String getBoard(Model model, @RequestParam(required = false) Long boardId) {
 
-        if (boardId == null) {
+        if (boardId == null) { // boardId가 없을경우
             model.addAttribute("board", new BoardEntity());
-        } else {
+        } else { // boardId가 있을경우
             BoardEntity board = boardService.getBoard(boardId);
             model.addAttribute("board", board);
         }
@@ -65,6 +74,13 @@ public class BoardController {
 
         // 게시글 저장
         boardService.registerBoard(board, authentication);
+        return "redirect:/board/boards";
+    }
+
+    // 게시글 삭제
+    @GetMapping("/delete")
+    public String deleteBoard(Long boardId) {
+        boardService.deleteBoard(boardId);
         return "redirect:/board/boards";
     }
 

@@ -28,6 +28,9 @@ public class BoardEntity {
     @Schema(description = "내용", nullable = false, example = "내용")
     private String content;
 
+    @Schema(description = "조회수", nullable = false, example = "100")
+    private int view;
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonIgnore

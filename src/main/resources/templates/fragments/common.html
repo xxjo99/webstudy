@@ -13,60 +13,85 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- common CSS -->
-    <link href="/css/fragments/common.css" th:href="@{/css/fragments/common.css}" rel="stylesheet">
+    <link th:href="@{/css/fragments/common.css}" rel="stylesheet">
 
     <title th:text="${title}"></title>
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:fragment="menu(menu)">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="menu(menu)">
+        <div class="container-fluid">
 
-        <a class="navbar-brand" href="#">BackEnd</a>
+            <a class="navbar-brand" th:href="@{/}">spring boot</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!-- 네비게이션 -->
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
 
-            <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <li class="nav-item" th:classappend="${menu} == 'home'? 'active'">
-                    <a class="nav-link" href="#" th:href="@{/}">홈<span class="sr-only"
-                            th:if="${menu} == 'home'">(current)</span></a>
-                </li>
+                    <!-- 홈 -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:classappend="${menu} == 'home'? 'active'" th:href="@{/}">홈</a>
+                    </li>
 
-                <li class="nav-item" th:classappend="${menu} == 'board'? 'active'">
-                    <a class="nav-link" href="#" th:href="@{/board/boards}">게시판<span class="sr-only"
-                            th:if="${menu} == 'board'">(current)</span></a>
-                </li>
+                    <!-- 게시판 -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:classappend="${menu} == 'board'? 'active'"
+                            th:href="@{/board/boards}">게시판</a>
+                    </li>
 
-            </ul>
+                    <!-- api리스트 -->
+                    <li class="nav-item dropdown">
 
-            <!-- 로그인 버튼 -->
-            <a class="btn btn-secondary my-2 mr-2 my-sm-0" th:href="@{/account/login}"
-                sec:authorize="!isAuthenticated()">로그인</a>
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            api
+                        </a>
 
-            <!-- 회원가입 버튼 -->
-            <a class="btn btn-secondary my-2 my-sm-0" th:href="@{/account/register}"
-                sec:authorize="!isAuthenticated()">회원가입</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Chat gpt</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
 
-            <!-- 로그인 했을경우 표시 -->
-            <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="POST"
-                  sec:authorize="isAuthenticated()">
+                    </li>
 
-                <span class="text-white" sec:authentication="name">사용자</span> <!-- 사용자 이름-->
-                <span class="text-white mx-2" sec:authentication="principal.authorities">권한</span> <!-- 해당 사용자에게 부여된 권한 -->
-                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button> <!-- 로그아웃 버튼 -->
+                </ul>
 
-            </form>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- 로그인 버튼 -->
+                    <a class="btn btn-primary my-2 mr-2 my-sm-0" th:href="@{/account/login}"
+                        sec:authorize="!isAuthenticated()">로그인</a>
+
+                    <!-- 회원가입 버튼 -->
+                    <a class="btn btn-info my-2 my-sm-0" th:href="@{/account/register}"
+                        sec:authorize="!isAuthenticated()">회원가입</a>
+
+                    <!-- 로그인 했을경우 표시 -->
+                    <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="POST"
+                        sec:authorize="isAuthenticated()">
+
+                        <!-- 사용자 이름-->
+                        <span class="text-primary" sec:authentication="name">사용자</span>
+                        <!-- 해당 사용자에게 부여된 권한 -->
+                        <span class="text-primary mx-2" sec:authentication="principal.authorities">권한</span>
+                        <!-- 로그아웃 버튼 -->
+                        <button class="btn btn-danger my-2 my-sm-0" type="submit">Logout</button>
+
+                    </form>
+                </ul>
+
+            </div>
 
         </div>
-
     </nav>
+
 </body>
 
 </html>

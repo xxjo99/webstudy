@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.thymeleaf.util.StringUtils;
 
 import java.util.List;
@@ -39,6 +40,13 @@ public class BoardService {
         return boardRepository.findByBoardId(boardId);
     }
 
+    // 게시글 조회수 증가
+    @Transactional
+    public BoardEntity increaseView(BoardEntity board) {
+        board.setView(board.getView() + 1);
+        return board;
+    }
+
     // 게시글 등록, 이름 제외, api에서 사용
     public BoardEntity registerBoard(BoardEntity board) {
         return boardRepository.save(board);
@@ -52,6 +60,7 @@ public class BoardService {
         board.setUser(user);
 
         // 게시글 저장
+        board.setView(0);
         boardRepository.save(board);
     }
 
