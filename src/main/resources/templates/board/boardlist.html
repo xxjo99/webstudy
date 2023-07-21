@@ -23,11 +23,8 @@
         th:replace="~{fragments/common :: menu('board')}">
     </nav>
 
-    <div class="container">
+    <div class="container mt-3">
         <h2>게시판</h2>
-
-        <!-- 게시물 개수 -->
-        <div>총 건수 : <span th:text="${boardList.totalElements}"></span></div>
 
         <!-- 검색 -->
         <form class="form-inline d-flex justify-content-end" method="GET" th:action="@{/board/boards}">

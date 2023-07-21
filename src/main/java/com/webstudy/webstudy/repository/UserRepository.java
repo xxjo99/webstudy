@@ -1,8 +1,6 @@
-package com.webstudy.webstudy.account;
+package com.webstudy.webstudy.repository;
 
-import com.webstudy.webstudy.board.BoardEntity;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.webstudy.webstudy.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,5 +1,7 @@
-package com.webstudy.webstudy.account;
+package com.webstudy.webstudy.ApiController;
 
+import com.webstudy.webstudy.service.AccountService;
+import com.webstudy.webstudy.entity.UserEntity;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;

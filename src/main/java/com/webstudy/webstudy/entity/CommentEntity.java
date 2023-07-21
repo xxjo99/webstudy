@@ -1,7 +1,6 @@
-package com.webstudy.webstudy.board;
+package com.webstudy.webstudy.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.webstudy.webstudy.account.UserEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -24,13 +23,18 @@ public class CommentEntity {
 
     @NotNull
     @Schema(description = "댓글 내용", nullable = false, example = "댓글 내용")
-    private String commentContent;
+    private String content;
+
+    @Schema(description = "게시글", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "board_id")
+    @JsonIgnore
+    private BoardEntity board;
 
     @NotNull
-    @Schema(description = "댓글 작성자", nullable = false, example = "유저1")
-    private String commentUser;
-
-    @NotNull
-    @Schema(description = "게시글 번호", nullable = false, example = "1 ")
-    private Long boardId;
+    @Schema(description = "댓글 작성자", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private UserEntity user;
 }

@@ -23,7 +23,7 @@
         th:replace="~{fragments/common :: menu('board')}">
     </nav>
 
-    <div class="container">
+    <div class="container mt-3">
 
         <form th:object="${board}">
             <input type="hidden" th:field="*{boardId}">
@@ -41,13 +41,55 @@
             </div>
 
             <!-- 리스트로 돌아가기, 수정 버튼-->
-            <div class="text-right">
+            <div class="mb-4 text-right">
                 <a type="button" class="btn btn-primary" th:href="@{/board/boards}">돌아가기</a>
                 <a type="button" class="btn btn-primary" th:href="@{/board/form(boardId=${board.boardId})}"
                     th:if="${#authentication.principal.username == board.user.userName}">수정하기</a>
             </div>
 
         </form>
+
+        <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+            <div class="card-body p-4">
+
+                <!-- 댓글 작성 -->
+                <form th:action="@{/comment/register}" th:object="${comment}" method="post">
+                    <input type="hidden" name="boardId" th:value="${board.boardId}" />
+
+                    <div class="card mb-4 border-0" style="background-color: #f0f2f5;">
+                        <div class="d-flex flex-start w-100">
+                            <div class="form-outline w-100">
+                                <textarea class="form-control" id="commentContent" name="content" rows="3"
+                                    style="background: #fff;"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="float-end mt-2 pt-1">
+                            <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <!-- 댓글 내용-->
+                <div th:if="${commentList.size() > 0}">
+                    <div class="card mb-4" th:each="comment : ${commentList}">
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex flex-row align-items-center">
+                                    <p class="small" th:text="${comment.user.userName}">작성자</p>
+                                </div>
+                            </div>
+
+                            <h6 class="mb-0 ms-2" th:text="${comment.content}">내용</h6>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
 
     </div>
 

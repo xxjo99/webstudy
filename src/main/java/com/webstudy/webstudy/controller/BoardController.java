@@ -1,5 +1,9 @@
-package com.webstudy.webstudy.board;
+package com.webstudy.webstudy.controller;
 
+import com.webstudy.webstudy.entity.BoardEntity;
+import com.webstudy.webstudy.entity.CommentEntity;
+import com.webstudy.webstudy.service.BoardService;
+import com.webstudy.webstudy.service.CommentService;
 import com.webstudy.webstudy.validator.BoardValidator;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +16,17 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 
     @Autowired
     private BoardService boardService;
+
+    @Autowired
+    private CommentService commentService;
 
     @Autowired
     private BoardValidator boardValidator;
@@ -40,9 +49,15 @@ public class BoardController {
     // 게시글 상세페이지 조회
     @GetMapping("/detail")
     public String getBoardDetail(Model model, @RequestParam Long boardId) {
+        // 게시글 조회
         BoardEntity board = boardService.getBoard(boardId);
         boardService.increaseView(board); // 게시글 조회수 증가
-        model.addAttribute("board", board);
+        model.addAttribute("board", board); // 게시글
+
+        // 댓글 조회
+        List<CommentEntity> commentList = commentService.getCommentList(boardId);
+        model.addAttribute("commentList", commentList);
+
         return "/board/boarddetail";
     }
 

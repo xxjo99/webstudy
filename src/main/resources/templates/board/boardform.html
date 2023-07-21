@@ -23,9 +23,9 @@
         th:replace="~{fragments/common :: menu('board')}">
     </nav>
 
-    <div class="container">
+    <div class="container mt-3">
 
-        <form action="#" th:action="@{/board/form}" th:object="${board}" method="post">
+        <form th:action="@{/board/form}" th:object="${board}" method="post">
             <input type="hidden" th:field="*{boardId}">
 
             <!-- 제목 -->

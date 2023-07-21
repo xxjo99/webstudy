@@ -1,4 +1,4 @@
-package com.webstudy.webstudy.index;
+package com.webstudy.webstudy.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,11 +1,13 @@
-package com.webstudy.webstudy.board;
+package com.webstudy.webstudy.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.webstudy.webstudy.account.UserEntity;
+import com.webstudy.webstudy.entity.UserEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter

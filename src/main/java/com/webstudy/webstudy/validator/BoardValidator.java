@@ -1,6 +1,6 @@
 package com.webstudy.webstudy.validator;
 
-import com.webstudy.webstudy.board.BoardEntity;
+import com.webstudy.webstudy.entity.BoardEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

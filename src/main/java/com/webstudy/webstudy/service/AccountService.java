@@ -1,5 +1,8 @@
-package com.webstudy.webstudy.account;
+package com.webstudy.webstudy.service;
 
+import com.webstudy.webstudy.entity.RoleEntity;
+import com.webstudy.webstudy.entity.UserEntity;
+import com.webstudy.webstudy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

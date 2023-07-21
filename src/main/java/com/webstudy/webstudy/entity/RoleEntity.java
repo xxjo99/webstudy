@@ -1,4 +1,4 @@
-package com.webstudy.webstudy.account;
+package com.webstudy.webstudy.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;

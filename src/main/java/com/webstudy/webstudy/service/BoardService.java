@@ -1,7 +1,11 @@
-package com.webstudy.webstudy.board;
+package com.webstudy.webstudy.service;
 
-import com.webstudy.webstudy.account.UserEntity;
-import com.webstudy.webstudy.account.UserRepository;
+import com.webstudy.webstudy.entity.BoardEntity;
+import com.webstudy.webstudy.entity.CommentEntity;
+import com.webstudy.webstudy.entity.UserEntity;
+import com.webstudy.webstudy.repository.BoardRepository;
+import com.webstudy.webstudy.repository.CommentRepository;
+import com.webstudy.webstudy.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,6 +24,9 @@ public class BoardService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CommentRepository commentRepository;
 
     // 모든 게시글 조회
     public List<BoardEntity> getBoardList(String title, String content) {
@@ -42,9 +49,8 @@ public class BoardService {
 
     // 게시글 조회수 증가
     @Transactional
-    public BoardEntity increaseView(BoardEntity board) {
+    public void increaseView(BoardEntity board) {
         board.setView(board.getView() + 1);
-        return board;
     }
 
     // 게시글 등록, 이름 제외, api에서 사용
@@ -81,6 +87,13 @@ public class BoardService {
 
     // 게시글 삭제
     public void deleteBoard(Long boardId) {
+        // 댓글 삭제
+        List<CommentEntity> commentList = commentRepository.findByBoardId(boardId);
+        for (CommentEntity comment : commentList) {
+            commentRepository.deleteById(comment.getCommentId());
+        }
+
+        // 게시글 삭제
         boardRepository.deleteById(boardId);
     }
 

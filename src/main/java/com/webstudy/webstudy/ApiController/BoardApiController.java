@@ -1,5 +1,7 @@
-package com.webstudy.webstudy.board;
+package com.webstudy.webstudy.ApiController;
 
+import com.webstudy.webstudy.entity.BoardEntity;
+import com.webstudy.webstudy.service.BoardService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
