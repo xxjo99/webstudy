@@ -1,19 +1,20 @@
-.navbar-nav{
+.navbar-nav {
     width: 100%;
 }
 
-@media(min-width:568px){
-    .end{
+@media(min-width:568px) {
+    .end {
         margin-left: auto;
     }
 }
 
-@media(max-width:768px){
-    #post{
+@media(max-width:768px) {
+    #post {
         width: 100%;
     }
 }
-#clicked{
+
+#clicked {
     padding-top: 1px;
     padding-bottom: 1px;
     text-align: center;
@@ -23,15 +24,15 @@
     color: black;
     border-width: 1px;
     border-style: solid;
-    border-radius: 13px; 
+    border-radius: 13px;
 }
 
-#profile{
+#profile {
     background-color: unset;
-    
-} 
 
-#post{
+}
+
+#post {
     margin: 10px;
     padding: 6px;
     padding-top: 2px;
@@ -46,23 +47,24 @@
     width: 50%;
 }
 
-body{
+body {
     background-color: black;
 }
 
-#nav-items li a,#profile{
+#nav-items li a,
+#profile {
     text-decoration: none;
     color: rgb(224, 219, 219);
     background-color: black;
 }
 
 
-.comments{
+.comments {
     margin-top: 5%;
     margin-left: 20px;
 }
 
-.darker{
+.darker {
     border: 1px solid #ecb21f;
     background-color: black;
     float: right;
@@ -72,7 +74,7 @@ body{
     padding-top: 10px;
 }
 
-.comment{
+.comment {
     border: 1px solid rgba(16, 46, 46, 1);
     background-color: rgba(16, 46, 46, 0.973);
     float: left;
@@ -80,49 +82,60 @@ body{
     padding-left: 40px;
     padding-right: 30px;
     padding-top: 10px;
-    
+
 }
-.comment h4,.comment span,.darker h4,.darker span{
+
+.comment h4,
+.comment span,
+.darker h4,
+.darker span {
     display: inline;
 }
 
-.comment p,.comment span,.darker p,.darker span{
+.comment p,
+.comment span,
+.darker p,
+.darker span {
     color: rgb(184, 183, 183);
 }
 
-h1,h4{
+h1,
+h4 {
     color: white;
     font-weight: bold;
 }
-label{
+
+label {
     color: rgb(212, 208, 208);
 }
 
-#align-form{
+#align-form {
     margin-top: 20px;
 }
-.form-group p a{
+
+.form-group p a {
     color: white;
 }
 
-#checkbx{
+#checkbx {
     background-color: black;
 }
 
-#darker img{
+#darker img {
     margin-right: 15px;
     position: static;
 }
 
-.form-group input,.form-group textarea{
+.form-group input,
+.form-group textarea {
     background-color: black;
     border: 1px solid rgba(16, 46, 46, 1);
     border-radius: 12px;
 }
 
-form{
+form {
     border: 1px solid rgba(16, 46, 46, 1);
     background-color: rgba(16, 46, 46, 0.973);
     border-radius: 5px;
     padding: 20px;
- }
+}

@@ -4,7 +4,6 @@ import com.webstudy.webstudy.service.AccountService;
 import com.webstudy.webstudy.entity.UserEntity;
 import com.webstudy.webstudy.validator.AccountValidator;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/account")
-@RequiredArgsConstructor
 public class AccountController {
 
     @Autowired
@@ -49,6 +47,12 @@ public class AccountController {
 
         accountService.saveUser(user);
         return "redirect:/";
+    }
+
+    // 마이페이지 이동
+    @GetMapping("/user")
+    public String userPage(Model model) {
+        return "/account/userpage";
     }
 
 }
