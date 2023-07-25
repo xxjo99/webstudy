@@ -94,7 +94,7 @@ public class BoardController {
 
     // 게시글 삭제
     @GetMapping("/delete")
-    public String deleteBoard(Long boardId) {
+    public String deleteBoard(@RequestParam Long boardId) {
         boardService.deleteBoard(boardId);
         return "redirect:/board/boards";
     }

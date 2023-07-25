@@ -97,4 +97,9 @@ public class BoardService {
         boardRepository.deleteById(boardId);
     }
 
+    // 해당 유저가 작성한 게시글 조회
+    public List<BoardEntity> getBoardListByUserId(Long userId) {
+        return boardRepository.findByUserId(userId); // 작성한 게시글 리스트
+    }
+
 }

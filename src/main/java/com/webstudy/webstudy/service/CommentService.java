@@ -44,4 +44,9 @@ public class CommentService {
         return commentRepository.findByBoardId(boardId);
     }
 
+    // 해당 유저가 작성한 게시글 조회
+    public List<CommentEntity> getCommentListByUserId(Long userId) {
+        return commentRepository.findByUserId(userId); // 작성한 게시글 리스트
+    }
+
 }
