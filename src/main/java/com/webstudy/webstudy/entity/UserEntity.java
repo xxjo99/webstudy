@@ -22,7 +22,7 @@ public class UserEntity {
     private Long userId;
 
     @Schema(description = "유저 이름", nullable = false, example = "user1")
-    @Pattern(regexp = "^[a-z0-9]{5}$", message = "5자 이상의 영문과 숫자가 포함 ")
+    @Pattern(regexp = "^[a-z0-9]{5,30}$", message = "5자 이상의 영문과 숫자가 포함 ")
     private String userName;
 
     @Schema(description = "유저 패스워드, 암호화 적용", nullable = false, example = "password")

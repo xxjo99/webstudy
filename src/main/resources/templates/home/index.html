@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!-- 헤더 프래그먼트 -->
+<th:block th:replace="~{/fragments/portfolioheader :: header}"></th:block>
+
+<body>
+
+  <!-- 네비게이션 프래그먼트 -->
+  <th:block th:replace="~{/fragments/portfolionav :: nav}"></th:block>
+
+  <!-- 타이틀 영역 -->
+  <section class="hero-area bg-primary" id="parallax">
+
+    <!-- 타이틀 -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 mx-auto">
+          <h1 class="text-white font-tertiary">Hi! I’m <br> BackEnd <br> Developer</h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- 배경 이미지-->
+    <div class="layer-bg w-100">
+      <img class="img-fluid w-100" src="images/illustrations/leaf-bg.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l2">
+      <img src="images/illustrations/dots-cyan.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l3">
+      <img src="images/illustrations/leaf-orange.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l4">
+      <img src="images/illustrations/dots-orange.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l5">
+      <img src="images/illustrations/leaf-yellow.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l6">
+      <img src="images/illustrations/leaf-cyan.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l7">
+      <img src="images/illustrations/dots-group-orange.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l8">
+      <img src="images/illustrations/leaf-pink-round.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l9">
+      <img src="images/illustrations/leaf-cyan-2.png" alt="bg-shape">
+    </div>
+
+    <!-- 소셜 아이콘 -->
+    <ul class="list-unstyled ml-5 mt-3 position-relative zindex-1">
+      <li class="mb-3"><a class="text-white"><i class="ti-facebook"></i></a></li>
+      <li class="mb-3"><a class="text-white"><i class="ti-instagram"></i></a></li>
+      <li class="mb-3"><a class="text-white"><i class="ti-dribbble"></i></a></li>
+      <li class="mb-3"><a class="text-white"><i class="ti-twitter"></i></a></li>
+    </ul>
+
+  </section>
+  <!-- 타이틀 영역 끝 -->
+
+  <!-- 기술 스택 영역 -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+
+        <!-- 타이틀 -->
+        <div class="col-lg-12 text-center">
+          <h2 class="section-title">Skills</h2>
+        </div>
+
+        <!-- 1 -->
+        <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+          <div class="card shadow text-center">
+
+            <!-- 비율 -->
+            <div class="position-relative rounded-top progress-wrapper" data-color="#fdb157">
+              <div class="wave" data-progress="90%"></div>
+            </div>
+
+            <!-- 기술 이름 -->
+            <div class="card-footer bg-white">
+              <h4 class="card-title">Java (90%)</h4>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+          <div class="card shadow text-center">
+
+            <!-- 비율 -->
+            <div class="position-relative rounded-top progress-wrapper" data-color="#9473e6">
+              <div class="wave" data-progress="60%"></div>
+            </div>
+
+            <!-- 기술 이름 -->
+            <div class="card-footer bg-white">
+              <h4 class="card-title">Kotlin (60%)</h4>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+          <div class="card shadow text-center">
+
+            <!-- 비율 -->
+            <div class="position-relative rounded-top progress-wrapper" data-color="#bdecf6">
+              <div class="wave" data-progress="70%"></div>
+            </div>
+
+            <!-- 기술 이름 -->
+            <div class="card-footer bg-white">
+              <h4 class="card-title">SpringBoot (70%)</h4>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+          <div class="card shadow text-center">
+
+            <!-- 비율 -->
+            <div class="position-relative rounded-top progress-wrapper" data-color="#ffbcaa">
+              <div class="wave" data-progress="60%"></div>
+            </div>
+
+            <!-- 기술 이름 -->
+            <div class="card-footer bg-white">
+              <h4 class="card-title">App (60%)</h4>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- 기술 스택 영역 끝 -->
+
+  <!-- 경력 영역 -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-around">
+
+        <!-- 타이틀 -->
+        <div class="col-lg-12 text-center">
+          <h2 class="section-title">Experience</h2>
+        </div>
+
+        <!-- 1 -->
+        <div class="col-lg-3 col-md-4 text-center">
+          <!-- 경력 이미지 -->
+          <img src="images/experience/icon-1.png" alt="icon">
+          <!-- 경력 기간 -->
+          <p class="mb-0">Jan 2007 - Feb 2009</p>
+          <!-- 내용 -->
+          <h4>Junior UX Designer</h4>
+          <!-- 회사 -->
+          <h6 class="text-light">WEBEX</h6>
+        </div>
+
+        <!-- 2 -->
+        <div class="col-lg-3 col-md-4 text-center">
+          <!-- 경력 이미지 -->
+          <img src="images/experience/icon-2.png" alt="icon">
+          <!-- 경력 기간 -->
+          <p class="mb-0">Mar 2009 - Aug 2014</p>
+          <!-- 내용 -->
+          <h4>UX & UI Designer</h4>
+          <!-- 회사 -->
+          <h6 class="text-light">AUGMEDIX</h6>
+        </div>
+
+        <!-- 3 -->
+        <div class="col-lg-3 col-md-4 text-center">
+          <!-- 경력 이미지 -->
+          <img src="images/experience/icon-3.png" alt="icon">
+          <!-- 경력 기간 -->
+          <p class="mb-0">Sep 2014 - Present</p>
+          <!-- 내용 -->
+          <h4>Senior UI Designer</h4>
+          <!-- 회사 -->
+          <h6 class="text-light">THEMEFISHER</h6>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- 경력 영역 끝 -->
+
+  <!-- 포트폴리오 영역 -->
+  <section class="section">
+    <div class="container">
+
+      <!-- 타이틀 -->
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="section-title">Portfolio</h2>
+        </div>
+      </div>
+
+      <div class="row shuffle-wrapper">
+
+        <!-- 게시판 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item">
+          <div class="position-relative rounded hover-wrapper">
+
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-2.jpg" alt="portfolio-image" class="img-fluid rounded w-100">
+
+            <!-- 포폴 이동 버튼-->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" th:href="@{/board/boards}">view project</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 노션 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item">
+          <div class="position-relative rounded hover-wrapper">
+
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-1.png" alt="portfolio-image" class="img-fluid rounded w-100">
+
+            <!-- 포폴 이동 버튼-->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="https://xxjo053.notion.site/de21b1d40087438b9126682f6bc5f8ba?pvs=25" target='_blank'>view project</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 졸업작품 - 백엔드 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item">
+          <div class="position-relative rounded hover-wrapper">
+
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-3.jpg" alt="portfolio-image" class="img-fluid rounded w-100">
+
+            <!-- 포폴 이동 버튼-->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="https://github.com/xxjo99/Capstone-Design-Android" target='_blank'>view project</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item">
+          <div class="position-relative rounded hover-wrapper">
+
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-8.png" alt="portfolio-image" class="img-fluid rounded w-100">
+
+            <!-- 포폴 이동 버튼-->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="#!">view project</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item">
+          <div class="position-relative rounded hover-wrapper">
+
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-8.png" alt="portfolio-image" class="img-fluid rounded w-100">
+
+            <!-- 포폴 이동 버튼-->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="#!">view project</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- 포트폴리오 영역 끝 -->
+
+  <!-- 로고 슬라이더 영역 -->
+  <section class="section pb-0">
+    <div class="container">
+      <div class="client-logo-slider d-flex align-items-center">
+        <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+            src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
+        <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+            src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
+        <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+            src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
+        <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+            src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
+        <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+            src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
+        <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+            src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
+        <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+            src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
+        <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+            src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
+        <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+            src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
+        <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+            src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
+      </div>
+    </div>
+  </section>
+  <!-- 로고 슬라이더 영역 끝 -->
+
+  <!-- 공부 리스트 영역 -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+
+        <!-- 타이틀 -->
+        <div class="col-12 text-center">
+          <h2 class="section-title">Study</h2>
+        </div>
+
+        <!-- 알고리즘 -->
+        <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+          <article class="card shadow">
+
+            <!-- 이미지 -->
+            <img class="rounded card-img-top" src="images/blog/post-5.jpg" alt="post-thumb">
+
+            <div class="card-body">
+
+              <!-- 제목 -->
+              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Algorithm</a>
+              </h4>
+
+              <!-- 내용 -->
+              <p class="cars-text">알고리즘 공부 및 문제 풀이</p>
+
+              <!-- 이동 버튼 -->
+              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
+
+            </div>
+
+          </article>
+        </div>
+
+        <!-- cs -->
+        <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+          <article class="card shadow">
+
+            <!-- 이미지 -->
+            <img class="rounded card-img-top" src="images/blog/post-5.jpg" alt="post-thumb">
+
+            <div class="card-body">
+
+              <!-- 제목 -->
+              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Computer Science</a>
+              </h4>
+
+              <!-- 내용 -->
+              <p class="cars-text">CS 공부 및 정리</p>
+
+              <!-- 이동 버튼 -->
+              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
+
+            </div>
+
+          </article>
+        </div>
+
+        <!-- 3 -->
+        <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+          <article class="card shadow">
+
+            <!-- 이미지 -->
+            <img class="rounded card-img-top" src="images/blog/post-5.jpg" alt="post-thumb">
+
+            <div class="card-body">
+
+              <!-- 제목 -->
+              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Amazon increase income 1.5
+                  Million</a>
+              </h4>
+
+              <!-- 내용 -->
+              <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et
+                dolore magna aliqua.</p>
+
+              <!-- 이동 버튼 -->
+              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
+
+            </div>
+
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- 공부 리스트 영역 끝 -->
+
+  <!-- footer 프래그먼트 -->
+  <th:block th:replace="~{/fragments/portfoliofooter :: footer}"></th:block>
+
+</body>
+
+</html>

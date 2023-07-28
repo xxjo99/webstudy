@@ -42,22 +42,22 @@ public class AccountController {
     }
 
     // 회원가입 페이지 이동
-    @GetMapping("/register")
-    public String register(Model model) {
+    @GetMapping("/join")
+    public String join(Model model) {
         UserEntity user = new UserEntity();
         model.addAttribute("user", user);
-        return "/account/register";
+        return "/account/join";
     }
 
     // 회원가입
-    @PostMapping("/register")
-    public String register(@ModelAttribute("user") @Valid UserEntity user, BindingResult bindingResult, Model model) {
+    @PostMapping("/join")
+    public String join(@ModelAttribute("user") @Valid UserEntity user, BindingResult bindingResult, Model model) {
 
         // 입력값 검증
         accountValidator.validate(user, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "/account/register";
+            return "/account/join";
         }
 
         accountService.saveUser(user);

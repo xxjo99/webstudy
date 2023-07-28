@@ -37,7 +37,7 @@ public class AccountApiController {
     }
 
     @Operation(summary = "유저 저장")
-    @PostMapping("/register")
+    @PostMapping("/join")
     public void saveUser(@Parameter(description = "저장할 유저 정보") @RequestBody UserEntity user) {
         accountService.saveUser(user);
     }

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<th:block th:fragment="nav">
+
+    <!-- 네비게이션 -->
+    <header class="navigation fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+
+            <!-- 상단 사이트 이미지-->
+            <a class="navbar-brand font-tertiary h3" th:href="@{/}"><img src="images/logo.png" alt="Myself"></a>
+
+            <!-- 네비게이션 아이콘 -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- 이동 버튼 -->
+            <div class="collapse navbar-collapse text-center" id="navigation">
+                <ul class="navbar-nav ml-auto">
+
+                    <!-- 홈 -->
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/}">Home</a>
+                    </li>
+
+                    <!-- 공부 내역 리스트 -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/study}">study</a>
+                    </li>
+
+                    <!-- 포트폴리오 -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/portfolio}">Portfolio</a>
+                    </li>
+
+                    <!-- 컨택 -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/contact}">Contact</a>
+                    </li>
+
+                    <!-- 로그인 -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/account/login}" sec:authorize="!isAuthenticated()">Login</a>
+                    </li>
+
+                    <!-- 회원가입 -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/account/join}" sec:authorize="!isAuthenticated()">Join</a>
+                    </li>
+
+                    <!-- 로그인 했을경우 표시 -->
+                    <form th:action="@{/logout}" method="POST"
+                        sec:authorize="isAuthenticated()">
+
+                        <!-- 로그아웃 버튼 -->
+                        <li class="nav-item">
+                            <button class="nav-link" type="submit" style="border:0; background-color: transparent">Logout</button>
+                        </li>
+
+                    </form>
+
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+</th:block>
+
+</html>

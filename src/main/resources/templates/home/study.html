@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!-- 헤더 프래그먼트 -->
+<th:block th:replace="~{/fragments/portfolioheader :: header}"></th:block>
+
+<body>
+
+  <!-- 네비게이션 프래그먼트 -->
+  <th:block th:replace="~{/fragments/portfolionav :: nav}"></th:block>
+
+  <!-- 타이틀 영역 -->
+  <section class="page-title bg-primary position-relative">
+
+    <!-- 타이틀 -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="text-white font-tertiary">Study</h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- 배경 이미지 -->
+    <img src="images/illustrations/page-title.png" alt="illustrations" class="bg-shape-1 w-100">
+    <img src="images/illustrations/leaf-pink-round.png" alt="illustrations" class="bg-shape-2">
+    <img src="images/illustrations/dots-cyan.png" alt="illustrations" class="bg-shape-3">
+    <img src="images/illustrations/leaf-orange.png" alt="illustrations" class="bg-shape-4">
+    <img src="images/illustrations/leaf-yellow.png" alt="illustrations" class="bg-shape-5">
+    <img src="images/illustrations/dots-group-cyan.png" alt="illustrations" class="bg-shape-6">
+    <img src="images/illustrations/leaf-cyan-lg.png" alt="illustrations" class="bg-shape-7">
+
+  </section>
+  <!-- 타이틀 영역 끝 -->
+
+  <!-- 공부 리스트 영역 -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+
+        <!-- 알고리즘 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <article class="card shadow">
+            <!-- 이미지 -->
+            <img class="rounded card-img-top" src="images/blog/post-5.jpg" alt="post-thumb">
+
+            <!-- 내용 -->
+            <div class="card-body">
+
+              <!-- 타이틀-->
+              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Algorithm</a>
+              </h4>
+
+              <!-- 내용 -->
+              <p class="cars-text">알고리즘 공부 및 문제 풀이</p>
+
+              <!-- 이동 버튼 -->
+              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
+
+            </div>
+
+          </article>
+        </div>
+
+        <!-- cs -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <article class="card shadow">
+            <!-- 이미지 -->
+            <img class="rounded card-img-top" src="images/blog/post-5.jpg" alt="post-thumb">
+
+            <!-- 내용 -->
+            <div class="card-body">
+
+              <!-- 타이틀-->
+              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Computer Science</a>
+              </h4>
+
+              <!-- 내용 -->
+              <p class="cars-text">CS 공부 및 정리</p>
+
+              <!-- 이동 버튼 -->
+              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
+
+            </div>
+
+          </article>
+        </div>
+
+        <!-- 3 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <article class="card shadow">
+            <!-- 이미지 -->
+            <img class="rounded card-img-top" src="images/blog/post-5.jpg" alt="post-thumb">
+
+            <!-- 내용 -->
+            <div class="card-body">
+
+              <!-- 타이틀-->
+              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Amazon increase income 1.5
+                  Million</a>
+              </h4>
+
+              <!-- 내용 -->
+              <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et
+                dolore magna aliqua.</p>
+
+              <!-- 이동 버튼 -->
+              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
+
+            </div>
+
+          </article>
+        </div>
+
+        <!-- 4 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <article class="card shadow">
+            <!-- 이미지 -->
+            <img class="rounded card-img-top" src="images/blog/post-5.jpg" alt="post-thumb">
+
+            <!-- 내용 -->
+            <div class="card-body">
+
+              <!-- 타이틀-->
+              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Amazon increase income 1.5
+                  Million</a>
+              </h4>
+
+              <!-- 내용 -->
+              <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et
+                dolore magna aliqua.</p>
+
+              <!-- 이동 버튼 -->
+              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
+
+            </div>
+
+          </article>
+        </div>
+
+        <!-- 5 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <article class="card shadow">
+            <!-- 이미지 -->
+            <img class="rounded card-img-top" src="images/blog/post-5.jpg" alt="post-thumb">
+
+            <!-- 내용 -->
+            <div class="card-body">
+
+              <!-- 타이틀-->
+              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Amazon increase income 1.5
+                  Million</a>
+              </h4>
+
+              <!-- 내용 -->
+              <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et
+                dolore magna aliqua.</p>
+
+              <!-- 이동 버튼 -->
+              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
+
+            </div>
+
+          </article>
+        </div>
+
+        <!-- 6 -->
+        <div class="col-lg-4 col-sm-6 mb-4">
+          <article class="card shadow">
+            <!-- 이미지 -->
+            <img class="rounded card-img-top" src="images/blog/post-5.jpg" alt="post-thumb">
+
+            <!-- 내용 -->
+            <div class="card-body">
+
+              <!-- 타이틀-->
+              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Amazon increase income 1.5
+                  Million</a>
+              </h4>
+
+              <!-- 내용 -->
+              <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et
+                dolore magna aliqua.</p>
+
+              <!-- 이동 버튼 -->
+              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
+
+            </div>
+
+          </article>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- 공부 리스트 영역 끝 -->
+
+  <!-- 로고 슬라이더 영역 -->
+  <section class="section bg-light">
+    <div class="container">
+
+      <!-- 타이틀 -->
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="section-title">My Clients</h2>
+        </div>
+      </div>
+
+      <!-- 로고 이미지 -->
+      <div class="row">
+        <div class="col-12">
+          <div class="client-logo-slider d-flex align-items-center">
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- 로고 슬라이더 영역 끝 -->
+
+  <!-- footer 프래그먼트 -->
+  <th:block th:replace="~{/fragments/portfoliofooter :: footer}"></th:block>
+
+</body>
+
+</html>

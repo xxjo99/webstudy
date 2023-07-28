@@ -15,7 +15,37 @@ public class IndexController {
     @Autowired
     private AccountService accountService;
 
+    // 홈페이지
     @GetMapping("/")
+    public String indexForm() {
+        return "/home/index";
+    }
+
+    // 공부 내역 리스트
+    @GetMapping("/study")
+    public String blogForm() {
+        return "/home/study";
+    }
+
+    // 공부 내역 상세
+    @GetMapping("/detail")
+    public String blogDetailForm() {
+        return "/home/study-detail";
+    }
+
+    // 포트폴리오
+    @GetMapping("/portfolio")
+    public String portfolioForm() {
+        return "/home/portfolio";
+    }
+
+    // 컨택
+    @GetMapping("/contact")
+    public String contactForm() {
+        return "/home/contact";
+    }
+
+    @GetMapping("/test")
     public String index(Model model, Principal principal) {
 
         if (principal != null) {
@@ -28,4 +58,5 @@ public class IndexController {
 
         return "index";
     }
+
 }

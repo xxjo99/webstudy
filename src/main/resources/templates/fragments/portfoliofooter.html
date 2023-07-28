@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="footer">
+
+    <!-- 컨택트 폼 영역 -->
+    <section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
+        <div class="container">
+            <div class="row">
+
+                <!-- 타이틀 -->
+                <div class="col-12 text-center">
+                    <h2 class="section-title">Contact Info</h2>
+                </div>
+
+                <!-- 컨택트 폼 -->
+                <div class="col-lg-8 mx-auto">
+                    <div class="bg-white rounded text-center p-5 shadow-down">
+
+                        <!-- 타이틀 -->
+                        <h4 class="mb-80">Contact Form</h4>
+
+                        <!-- 작성란 -->
+                        <form action="#" class="row">
+
+                            <!-- 이름 작성 -->
+                            <div class="col-md-6">
+                                <input type="text" id="name" name="name" placeholder="Full Name"
+                                    class="form-control px-0 mb-4" required>
+                            </div>
+
+                            <!-- 이메일 작성 -->
+                            <div class="col-md-6">
+                                <input type="email" id="email" name="email" placeholder="Email Address"
+                                    class="form-control px-0 mb-4" required>
+                            </div>
+
+                            <!-- 내용 작성 -->
+                            <div class="col-12">
+                                <textarea name="message" id="message" class="form-control px-0 mb-4"
+                                    placeholder="Type Message Here" required></textarea>
+                            </div>
+
+                            <!-- 전송 버튼 -->
+                            <div class="col-lg-6 col-10 mx-auto">
+                                <button class="btn btn-primary w-100">send</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 컨택트 폼 영역 끝 -->
+
+    <!-- 하단 -->
+    <footer class="bg-dark footer-section">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+
+                    <!-- 이메일 -->
+                    <div class="col-md-4">
+                    </div>
+
+                    <!-- 휴대폰 번호 -->
+                    <div class="col-md-4">
+                        <h5 class="text-light">Email</h5>
+                        <p class="text-white paragraph-lg font-secondary">xxjo0530@gmail.com</p>
+                    </div>
+
+                    <!-- 주소 -->
+                    <div class="col-md-4">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- 카피라이트 -->
+        <div class="border-top text-center border-dark py-5">
+            <p class="mb-0 text-light">Copyright &copy;
+                <script>
+                    var CurrentYear = new Date().getFullYear()
+                    document.write(CurrentYear)
+                </script> Designed &amp; Developed by <a class="text-white-50">Themefisher</a>
+            </p>
+        </div>
+    </footer>
+    <!-- 하단 끝 -->
+
+    <!-- jQuery -->
+    <script src="plugins/jQuery/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+    <!-- slick slider -->
+    <script src="plugins/slick/slick.min.js"></script>
+    <!-- filter -->
+    <script src="plugins/shuffle/shuffle.min.js"></script>
+
+    <!-- Main Script -->
+    <script src="js/script.js"></script>
+
+</th:block>
+
+</html>

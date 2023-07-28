@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!-- 헤더 프래그먼트 -->
+<th:block th:replace="~{/fragments/portfolioheader :: header}"></th:block>
+
+
+<body>
+
+  <!-- 네비게이션 프래그먼트 -->
+  <th:block th:replace="~{/fragments/portfolionav :: nav}"></th:block>
+
+  <!-- 타이틀 영역 -->
+  <section class="page-title bg-primary position-relative">
+
+    <!-- 타이틀 -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="text-white font-tertiary">Portfolio</h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- 배경 이미지 -->
+    <img src="images/illustrations/page-title.png" alt="illustrations" class="bg-shape-1 w-100">
+    <img src="images/illustrations/leaf-pink-round.png" alt="illustrations" class="bg-shape-2">
+    <img src="images/illustrations/dots-cyan.png" alt="illustrations" class="bg-shape-3">
+    <img src="images/illustrations/leaf-orange.png" alt="illustrations" class="bg-shape-4">
+    <img src="images/illustrations/leaf-yellow.png" alt="illustrations" class="bg-shape-5">
+    <img src="images/illustrations/dots-group-cyan.png" alt="illustrations" class="bg-shape-6">
+    <img src="images/illustrations/leaf-cyan-lg.png" alt="illustrations" class="bg-shape-7">
+
+  </section>
+  <!-- 타이틀 영역 끝 -->
+
+  <!-- 포트폴리오 영역 -->
+  <section class="section">
+    <div class="container">
+
+      <!-- 필터  리스트 -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="btn-group btn-group-toggle justify-content-center d-flex" data-toggle="buttons">
+
+            <!-- 1 -->
+            <label class="btn btn-sm btn-primary active">
+              <input type="radio" name="shuffle-filter" value="all" checked="checked" />All
+            </label>
+
+            <!-- 2 -->
+            <label class="btn btn-sm btn-primary">
+              <input type="radio" name="shuffle-filter" value="backend" />backend
+            </label>
+
+            <!-- 3 -->
+            <label class="btn btn-sm btn-primary">
+              <input type="radio" name="shuffle-filter" value="api" />api
+            </label>
+
+            <!-- 4 -->
+            <label class="btn btn-sm btn-primary">
+              <input type="radio" name="shuffle-filter" value="app" />app
+            </label>
+
+            <!-- 5 -->
+            <label class="btn btn-sm btn-primary">
+              <input type="radio" name="shuffle-filter" value="etc" />etc
+            </label>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 포트폴리오 리스트 -->
+      <div class="row shuffle-wrapper">
+
+        <!-- 노션 -->
+        <!-- 필터 종류 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;etc&quot;]">
+
+          <div class="position-relative rounded hover-wrapper">
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-1.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+
+            <!-- 버튼 -->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="https://xxjo053.notion.site/de21b1d40087438b9126682f6bc5f8ba?pvs=25">view project</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 게시판 -->
+        <!-- 필터 종류 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;backend&quot;]">
+
+          <div class="position-relative rounded hover-wrapper">
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-2.jpg" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+
+            <!-- 버튼 -->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" th:href="@{/board/boards}">view project</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 졸업작품 - 백엔드 -->
+        <!-- 필터 종류 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;backend&quot;]">
+
+          <div class="position-relative rounded hover-wrapper">
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-3.jpg" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+
+            <!-- 버튼 -->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="https://github.com/xxjo99/Capstone-Design-SpringBoot" target='_blank'>view project</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 졸업작품 - 어플 -->
+        <!-- 필터 종류 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;app&quot;]">
+
+          <div class="position-relative rounded hover-wrapper">
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-4.jpg" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+
+            <!-- 버튼 -->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="https://github.com/xxjo99/Capstone-Design-Android" target='_blank'>view project</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 5  -->
+        <!-- 필터 종류 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;backend&quot;]">
+
+          <div class="position-relative rounded hover-wrapper">
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-8.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+
+            <!-- 버튼 -->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="#!">view project</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 6 -->
+        <!-- 필터 종류 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;api&quot;]">
+
+          <div class="position-relative rounded hover-wrapper">
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-8.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+
+            <!-- 버튼 -->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="#!">view project</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 7 -->
+        <!-- 필터 종류 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;app&quot;]">
+
+          <div class="position-relative rounded hover-wrapper">
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-8.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+
+            <!-- 버튼 -->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="#!">view project</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- 8 -->
+        <!-- 필터 종류 -->
+        <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;api&quot;]">
+
+          <div class="position-relative rounded hover-wrapper">
+            <!-- 이미지 -->
+            <img src="images/portfolio/item-8.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+
+            <!-- 버튼 -->
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="#!">view project</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- 포트폴리오 영역 끝 -->
+
+  <!-- 로고 슬라이더 영역 -->
+  <section class="section">
+    <div class="container">
+
+      <!-- 타이틀 -->
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 class="section-title">LOGO</h2>
+        </div>
+      </div>
+
+      <!-- 로고 이미지 -->
+      <div class="row">
+        <div class="col-12">
+          <div class="client-logo-slider d-flex align-items-center">
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
+            <a th:href="@{/contact}" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
+                src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- 로고 슬라이더 영역 끝 -->
+
+  <!-- footer 프래그먼트 -->
+  <th:block th:replace="~{/fragments/portfoliofooter :: footer}"></th:block>
+</body>
+
+</html>
