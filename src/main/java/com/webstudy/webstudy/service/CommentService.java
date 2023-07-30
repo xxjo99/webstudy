@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -35,6 +36,10 @@ public class CommentService {
         String userName = authentication.getName();
         UserEntity user = userRepository.findByUserName(userName);
         comment.setUser(user);
+
+        // 날짜 저장
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        comment.setCreateDate(timestamp);
 
         commentRepository.save(comment);
     }

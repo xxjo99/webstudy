@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
@@ -32,6 +33,9 @@ public class BoardEntity {
 
     @Schema(description = "조회수", nullable = false, example = "100")
     private int view;
+
+    @Schema(description = "생성날짜", nullable = false, example = "0000-00-00 00:00:00")
+    private Timestamp createDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

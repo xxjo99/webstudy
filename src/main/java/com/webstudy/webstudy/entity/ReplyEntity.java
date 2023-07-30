@@ -14,31 +14,28 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @ToString
-@Table(name = "comment")
-@Schema(description = "댓글 Model")
-public class CommentEntity {
+@Table(name = "reply")
+@Schema(description = "게시글 Model")
+public class ReplyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(description = "댓글 id, pk", nullable = false)
-    private Long commentId;
+    @Schema(description = "대댓글 id, pk", nullable = false)
+    private Long replyId;
 
     @NotNull
-    @Schema(description = "댓글 내용", nullable = false, example = "댓글 내용")
+    @Schema(description = "내용", nullable = false, example = "내용")
     private String content;
 
     @Schema(description = "생성날짜", nullable = false, example = "0000-00-00 00:00:00")
     private Timestamp createDate;
 
-    @Schema(description = "게시글", nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "board_id")
+    @ManyToOne
+    @JoinColumn(name = "comment_id")
     @JsonIgnore
-    private BoardEntity board;
+    private CommentEntity comment;
 
-    @NotNull
-    @Schema(description = "댓글 작성자", nullable = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id")
     @JsonIgnore
     private UserEntity user;

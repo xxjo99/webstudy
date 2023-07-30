@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -29,6 +30,10 @@ public class AccountService {
         RoleEntity role = new RoleEntity();
         role.setRoleId(1L);
         user.getRoleList().add(role);
+
+        // 날짜 저장
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        user.setCreateDate(timestamp);
 
         // 저장
         userRepository.save(user);

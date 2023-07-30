@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.thymeleaf.util.StringUtils;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @Service
@@ -64,6 +65,10 @@ public class BoardService {
         String userName = authentication.getName();
         UserEntity user = userRepository.findByUserName(userName);
         board.setUser(user);
+
+        // 날짜 저장
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        board.setCreateDate(timestamp);
 
         // 게시글 저장
         board.setView(0);

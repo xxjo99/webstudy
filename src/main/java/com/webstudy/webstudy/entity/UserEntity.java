@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +31,9 @@ public class UserEntity {
     
     @Schema(description = "계정 활성화 상태", nullable = false, defaultValue = "1", allowableValues = {"1", "0"})
     private Boolean enabled;
+
+    @Schema(description = "생성날짜", nullable = false, example = "0000-00-00 00:00:00")
+    private Timestamp createDate;
 
     @ManyToMany
     @JoinTable(
