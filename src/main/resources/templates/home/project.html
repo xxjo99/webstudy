@@ -3,12 +3,12 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <!-- 헤더 프래그먼트 -->
-<th:block th:replace="~{/fragments/portfolioheader :: header}"></th:block>
+<th:block th:replace="~{/fragments/homeheader :: header}"></th:block>
 
 <body>
 
   <!-- 네비게이션 프래그먼트 -->
-  <th:block th:replace="~{/fragments/portfolionav :: nav}"></th:block>
+  <th:block th:replace="~{/fragments/homenav :: nav}"></th:block>
 
   <!-- 타이틀 영역 -->
   <section class="page-title bg-primary position-relative">
@@ -17,7 +17,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-          <h1 class="text-white font-tertiary">Portfolio</h1>
+          <h1 class="text-white font-tertiary">Project</h1>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
   </section>
   <!-- 타이틀 영역 끝 -->
 
-  <!-- 포트폴리오 영역 -->
+  <!-- 프로젝트 영역 -->
   <section class="section">
     <div class="container">
 
@@ -72,7 +72,7 @@
         </div>
       </div>
 
-      <!-- 포트폴리오 리스트 -->
+      <!-- 프로젝트 리스트 -->
       <div class="row shuffle-wrapper">
 
         <!-- 노션 -->
@@ -151,18 +151,18 @@
 
         </div>
 
-        <!-- 5  -->
+        <!-- 스웨거 - 백엔드  -->
         <!-- 필터 종류 -->
         <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;backend&quot;]">
 
           <div class="position-relative rounded hover-wrapper">
             <!-- 이미지 -->
-            <img src="/images/portfolio/item-8.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+            <img src="/images/portfolio/item-5.png" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
 
             <!-- 버튼 -->
             <div class="hover-overlay">
               <div class="hover-content">
-                <a class="btn btn-light btn-sm" href="#!">view project</a>
+                <a class="btn btn-light btn-sm" href="http://localhost:8080/swagger-ui/index.html">view project</a>
               </div>
             </div>
 
@@ -230,7 +230,7 @@
       </div>
     </div>
   </section>
-  <!-- 포트폴리오 영역 끝 -->
+  <!-- 프로젝트 영역 끝 -->
 
   <!-- 로고 슬라이더 영역 -->
   <section class="section">
@@ -276,7 +276,7 @@
   <!-- 로고 슬라이더 영역 끝 -->
 
   <!-- footer 프래그먼트 -->
-  <th:block th:replace="~{/fragments/portfoliofooter :: footer}"></th:block>
+  <th:block th:replace="~{/fragments/homefooter :: footer}"></th:block>
 </body>
 
 </html>

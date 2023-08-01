@@ -21,22 +21,10 @@ public class IndexController {
         return "/home/index";
     }
 
-    // 공부 내역 리스트
-    @GetMapping("/study")
-    public String blogForm() {
-        return "/home/study";
-    }
-
-    // 공부 내역 상세
-    @GetMapping("/detail")
-    public String blogDetailForm() {
-        return "/home/study-detail";
-    }
-
     // 포트폴리오
-    @GetMapping("/portfolio")
+    @GetMapping("/project")
     public String portfolioForm() {
-        return "/home/portfolio";
+        return "/home/project";
     }
 
     // 컨택

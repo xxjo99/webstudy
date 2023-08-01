@@ -17,4 +17,6 @@ public interface CommentRepository extends JpaRepository<CommentEntity, Long> {
     @Query(value = "SELECT * FROM comment WHERE user_id = :userId", nativeQuery = true)
     List<CommentEntity> findByUserId(Long userId); // 유저 id를 통해 조회
 
+    CommentEntity findByCommentId(Long commentId);
+
 }

@@ -1,4 +1,4 @@
-package com.webstudy.webstudy.secruity;
+package com.webstudy.webstudy.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -34,9 +34,8 @@ public class WebSecurityConfig {
                                 "/",
                                 "/account/join",
                                 "/about",
-                                "/study",
                                 "/contact",
-                                "/portfolio",
+                                "/project",
                                 "/test").permitAll()
                         .anyRequest().authenticated()
                 )

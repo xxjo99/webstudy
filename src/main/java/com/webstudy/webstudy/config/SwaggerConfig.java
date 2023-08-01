@@ -1,4 +1,4 @@
-package com.webstudy.webstudy.swagger;
+package com.webstudy.webstudy.config;
 
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;

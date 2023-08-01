@@ -3,12 +3,12 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <!-- 헤더 프래그먼트 -->
-<th:block th:replace="~{/fragments/portfolioheader :: header}"></th:block>
+<th:block th:replace="~{/fragments/homeheader :: header}"></th:block>
 
 <body>
 
   <!-- 네비게이션 프래그먼트 -->
-  <th:block th:replace="~{/fragments/portfolionav :: nav}"></th:block>
+  <th:block th:replace="~{/fragments/homenav :: nav}"></th:block>
 
   <!-- 타이틀 영역 -->
   <section class="hero-area bg-primary" id="parallax">
@@ -160,11 +160,11 @@
           <!-- 경력 이미지 -->
           <img src="/images/experience/icon-1.png" alt="icon">
           <!-- 경력 기간 -->
-          <p class="mb-0">Jan 2007 - Feb 2009</p>
+          <p class="mb-0">Mar 2022 - Dec 2023</p>
           <!-- 내용 -->
-          <h4>Junior UX Designer</h4>
+          <h4>Undergraduate</h4>
           <!-- 회사 -->
-          <h6 class="text-light">WEBEX</h6>
+          <h6 class="text-light">Ulsan University</h6>
         </div>
 
         <!-- 2 -->
@@ -172,23 +172,11 @@
           <!-- 경력 이미지 -->
           <img src="/images/experience/icon-2.png" alt="icon">
           <!-- 경력 기간 -->
-          <p class="mb-0">Mar 2009 - Aug 2014</p>
+          <p class="mb-0">Aug 2023 - Ded 2023</p>
           <!-- 내용 -->
-          <h4>UX & UI Designer</h4>
+          <h4>Intern</h4>
           <!-- 회사 -->
-          <h6 class="text-light">AUGMEDIX</h6>
-        </div>
-
-        <!-- 3 -->
-        <div class="col-lg-3 col-md-4 text-center">
-          <!-- 경력 이미지 -->
-          <img src="/images/experience/icon-3.png" alt="icon">
-          <!-- 경력 기간 -->
-          <p class="mb-0">Sep 2014 - Present</p>
-          <!-- 내용 -->
-          <h4>Senior UI Designer</h4>
-          <!-- 회사 -->
-          <h6 class="text-light">THEMEFISHER</h6>
+          <h6 class="text-light">HINX</h6>
         </div>
 
       </div>
@@ -196,14 +184,14 @@
   </section>
   <!-- 경력 영역 끝 -->
 
-  <!-- 포트폴리오 영역 -->
+  <!-- 프로젝트 영역 -->
   <section class="section">
     <div class="container">
 
       <!-- 타이틀 -->
       <div class="row">
         <div class="col-12 text-center">
-          <h2 class="section-title">Portfolio</h2>
+          <h2 class="section-title">Project</h2>
         </div>
       </div>
 
@@ -260,17 +248,17 @@
           </div>
         </div>
 
-        <!-- 4 -->
+        <!-- 노션 - 백엔드 -->
         <div class="col-lg-4 col-6 mb-4 shuffle-item">
           <div class="position-relative rounded hover-wrapper">
 
             <!-- 이미지 -->
-            <img src="/images/portfolio/item-8.png" alt="portfolio-image" class="img-fluid rounded w-100">
+            <img src="/images/portfolio/item-5.png" alt="portfolio-image" class="img-fluid rounded w-100">
 
             <!-- 포폴 이동 버튼-->
             <div class="hover-overlay">
               <div class="hover-content">
-                <a class="btn btn-light btn-sm" href="#!">view project</a>
+                <a class="btn btn-light btn-sm" href="http://localhost:8080/swagger-ui/index.html">view project</a>
               </div>
             </div>
 
@@ -297,7 +285,7 @@
       </div>
     </div>
   </section>
-  <!-- 포트폴리오 영역 끝 -->
+  <!-- 프로젝트 영역 끝 -->
 
   <!-- 로고 슬라이더 영역 -->
   <section class="section pb-0">
@@ -335,98 +323,8 @@
   </section>
   <!-- 로고 슬라이더 영역 끝 -->
 
-  <!-- 공부 리스트 영역 -->
-  <section class="section">
-    <div class="container">
-      <div class="row">
-
-        <!-- 타이틀 -->
-        <div class="col-12 text-center">
-          <h2 class="section-title">Study</h2>
-        </div>
-
-        <!-- 알고리즘 -->
-        <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-          <article class="card shadow">
-
-            <!-- 이미지 -->
-            <img class="rounded card-img-top" src="/images/blog/post-1.png" alt="post-thumb">
-
-            <div class="card-body">
-
-              <!-- 제목 -->
-              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Algorithm</a>
-              </h4>
-
-              <!-- 내용 -->
-              <p class="cars-text">알고리즘 공부 및 문제 풀이</p>
-
-              <!-- 이동 버튼 -->
-              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
-
-            </div>
-
-          </article>
-        </div>
-
-        <!-- cs -->
-        <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-          <article class="card shadow">
-
-            <!-- 이미지 -->
-            <img class="rounded card-img-top" src="/images/blog/post-2.jpg" alt="post-thumb">
-
-            <div class="card-body">
-
-              <!-- 제목 -->
-              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Computer Science</a>
-              </h4>
-
-              <!-- 내용 -->
-              <p class="cars-text">CS 공부 및 정리</p>
-
-              <!-- 이동 버튼 -->
-              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
-
-            </div>
-
-          </article>
-        </div>
-
-        <!-- 3 -->
-        <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-          <article class="card shadow">
-
-            <!-- 이미지 -->
-            <img class="rounded card-img-top" src="/images/blog/post-5.jpg" alt="post-thumb">
-
-            <div class="card-body">
-
-              <!-- 제목 -->
-              <h4 class="card-title"><a class="text-dark" th:href="@{/detail}">Amazon increase income 1.5
-                  Million</a>
-              </h4>
-
-              <!-- 내용 -->
-              <p class="cars-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                incididunt ut labore et
-                dolore magna aliqua.</p>
-
-              <!-- 이동 버튼 -->
-              <a th:href="@{/detail}" class="btn btn-xs btn-primary">Read More</a>
-
-            </div>
-
-          </article>
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <!-- 공부 리스트 영역 끝 -->
-
   <!-- footer 프래그먼트 -->
-  <th:block th:replace="~{/fragments/portfoliofooter :: footer}"></th:block>
+  <th:block th:replace="~{/fragments/homefooter :: footer}"></th:block>
 
 </body>
 

@@ -20,7 +20,9 @@
 
 <body>
 
-    <div class="container mt-3">
+    <div class="container">
+
+        <h2 class="mt-4 mb-3">게시판</h2>
 
         <form th:object="${board}">
             <input type="hidden" th:field="*{boardId}">
@@ -80,6 +82,7 @@
                             </div>
 
                             <h6 class="mb-0 ms-2" th:text="${comment.content}">내용</h6>
+
                         </div>
                     </div>
                 </div>
