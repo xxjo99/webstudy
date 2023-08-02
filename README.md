@@ -45,3 +45,7 @@
 ### api 작성
 - 작성한 api는 Swagger를 통해 문서화
 ![image](https://github.com/xxjo99/webstudy/assets/96373083/ccac45a3-90e6-46c3-955c-babc4e0b1188)
+
+### openApi 목록
+- 카카오맵 api
+![image](https://github.com/xxjo99/webstudy/assets/96373083/5e1f215c-6095-4db7-bd60-1062c615625a)
