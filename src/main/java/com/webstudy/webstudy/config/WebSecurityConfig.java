@@ -36,7 +36,8 @@ public class WebSecurityConfig {
                                 "/about",
                                 "/contact",
                                 "/project",
-                                "/test").permitAll()
+                                "/test"
+                        , "/webtoon/home").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form

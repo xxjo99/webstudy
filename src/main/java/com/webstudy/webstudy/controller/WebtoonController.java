@@ -5,11 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/kakao")
-public class KakaoMapController {
+@RequestMapping("/webtoon")
+public class WebtoonController {
 
-    @GetMapping("/map")
-    public String kakaoMap() {
-        return "/kakaomap/kakaomap";
+    // 홈
+    @GetMapping("/home")
+    public String contactForm() {
+        return "/webtoon/webtoon";
     }
 }
