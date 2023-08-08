@@ -28,6 +28,7 @@ public class WebtoonApiController {
             @Parameter(description = "웹툰 공급자 - naver : 네이버 웹툰, kakao : 카카오 웹툰, kakaoPage : 카카오 페이지") @DefaultValue("모든 웹툰공급자") @RequestParam(required = false) String service,
             @Parameter(description = "업데이트 요일 - mon, tue, wed, thu, fri, sat, sun, finished, naverDaily") @DefaultValue("모든 요일") @RequestParam(required = false) String updateDay)
     {
+        System.out.println("run");
         return webtoonService.getWebtoons(page, perPage, service, updateDay);
     }
 

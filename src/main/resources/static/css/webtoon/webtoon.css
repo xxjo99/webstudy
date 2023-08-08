@@ -4,6 +4,8 @@ html {
 }
 
 body {
+    overflow-x: hidden;
+    overflow-y: auto;
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -29,4 +31,26 @@ body {
     height: 100vw;
     margin: 0;
     background-color: #EEEEEE;
+}
+
+.card-rounded {
+    border-radius: 10px;
+}
+
+.card-title {
+    background-color: #333;
+    color: white;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card-title h5.card-title {
+    font-size: 14px;
+}
+
+.card-author {
+    background-color: #333;
+    color: white;
+    font-weight: 100;
+    margin: 0;
 }
