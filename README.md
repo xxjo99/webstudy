@@ -47,6 +47,13 @@
 ![image](https://github.com/xxjo99/webstudy/assets/96373083/ccac45a3-90e6-46c3-955c-babc4e0b1188)
 
 ### openApi 목록
-- openAi (토큰 부족으로 사용불가)
+- openAi (ChatGPT) (토큰 부족으로 사용불가
+
 - 카카오맵 api
 ![image](https://github.com/xxjo99/webstudy/assets/96373083/5e1f215c-6095-4db7-bd60-1062c615625a)
+
+- 웹툰 api
+![image](https://github.com/xxjo99/webstudy/assets/96373083/f7f0d17e-6597-4a25-8f99-a68fddf83f64)
+https://github.com/HyeokjaeLee/korea-webtoon-api 해당 깃허브 참고
+- 네이버, 카카오, 카카오페이지별 웹툰 확인
+- 웹툰 검색

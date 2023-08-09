@@ -25,14 +25,27 @@
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white">
 
-            <!-- 타이틀-->
-            <h5 class="my-0 mr-md-auto font-weight-bold">Webtoon</h5>
+            <!-- 타이틀 및 이미지 -->
+            <a th:href="@{/webtoon/naver}"
+               class="title-link my-0 mr-md-auto font-weight-bold d-flex align-items-center">
+                <h5 class="my-0 mr-4 font-weight-bold">Webtoon</h5>
+                <div class="img-box mr-3">
+                    <img class="img" src="/images/webtoon/naver_webtoon.png">
+                </div>
+                <div class="img-box mr-3">
+                    <img class="img" src="/images/webtoon/kakao_webtoon.jpg">
+                </div>
+                <div class="img-box">
+                    <img class="img" src="/images/webtoon/kakao_page_webtoon.png">
+                </div>
+            </a>
 
             <!-- 웹툰 검색 -->
-            <form class="navbar-form navbar-right">
+            <form class="navbar-form navbar-right" method="GET" th:action="@{/webtoon/search}">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search Webtoon"
-                        aria-label="Input group example" aria-describedby="basic-addon1">
+                        aria-label="Input group example" aria-describedby="basic-addon1" id="keyword" name="keyword"
+                        th:value="${param.keyword}">
 
                     <span class="input-group-text" id="basic-addon1">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -55,8 +68,8 @@
                 <!-- 요일 분류 탭 -->
                 <nav>
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link" id="mon-tab" data-toggle="tab" href="#mon" role="tab"
-                            aria-controls="mon" aria-selected="false">월</a>
+                        <a class="nav-item nav-link active" id="mon-tab" data-toggle="tab" href="#mon" role="tab"
+                            aria-controls="mon" aria-selected="true">월</a>
                         <a class="nav-item nav-link" id="tue-tab" data-toggle="tab" href="#tue" role="tab"
                             aria-controls="tue" aria-selected="false">화</a>
                         <a class="nav-item nav-link" id="wed-tab" data-toggle="tab" href="#wed" role="tab"
@@ -66,7 +79,7 @@
                         <a class="nav-item nav-link" id="fri-tab" data-toggle="tab" href="#fri" role="tab"
                             aria-controls="fri" aria-selected="false">금</a>
                         <a class="nav-item nav-link" id="sat-tab" data-toggle="tab" href="#sat" role="tab"
-                            aria-controls="cosatmment" aria-selected="false">토</a>
+                            aria-controls="sat" aria-selected="false">토</a>
                         <a class="nav-item nav-link" id="sun-tab" data-toggle="tab" href="#sun" role="tab"
                             aria-controls="sun" aria-selected="false">일</a>
                         <a class="nav-item nav-link" id="finished-tab" data-toggle="tab" href="#finished" role="tab"
@@ -81,18 +94,18 @@
                     <div class="tab-content" id="nav-tabContent">
 
                         <!-- 월 -->
-                        <div class="tab-pane fade" id="mon" role="tabpanel" aria-labelledby="mon-tab">
+                        <div class="tab-pane fade active show" id="mon" role="tabpanel" aria-labelledby="mon-tab">
 
                             <div class="row pt-4">
-                                <th:block th:each="monNaverWebtoon : ${monNaverWebtoons}">
+                                <th:block th:each="monWebtoon : ${monWebtoons}">
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${monNaverWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <img th:src="@{${monWebtoon.img}}" class="card-img-top" alt="no image">
 
                                             <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${monNaverWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${monNaverWebtoon.author}">작가</small>
+                                                <h5 class="card-title" th:text="${monWebtoon.title}">제목</h5>
+                                                <small class="text-muted" th:text="${monWebtoon.author}">작가</small>
                                             </div>
                                         </div>
 
@@ -106,15 +119,15 @@
                         <div class="tab-pane fade" id="tue" role="tabpanel" aria-labelledby="tue-tab">
 
                             <div class="row pt-4">
-                                <th:block th:each="tueNaverWebtoon : ${tueNaverWebtoons}">
+                                <th:block th:each="tueWebtoon : ${tueWebtoons}">
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${tueNaverWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <img th:src="@{${tueWebtoon.img}}" class="card-img-top" alt="no image">
 
                                             <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${tueNaverWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${tueNaverWebtoon.author}">작가</small>
+                                                <h5 class="card-title" th:text="${tueWebtoon.title}">제목</h5>
+                                                <small class="text-muted" th:text="${tueWebtoon.author}">작가</small>
                                             </div>
                                         </div>
 
@@ -128,15 +141,15 @@
                         <div class="tab-pane fade" id="wed" role="tabpanel" aria-labelledby="wed-tab">
 
                             <div class="row pt-4">
-                                <th:block th:each="wedNaverWebtoon : ${wedNaverWebtoons}">
+                                <th:block th:each="wedWebtoon : ${wedWebtoons}">
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${wedNaverWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <img th:src="@{${wedWebtoon.img}}" class="card-img-top" alt="no image">
 
                                             <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${wedNaverWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${wedNaverWebtoon.author}">작가</small>
+                                                <h5 class="card-title" th:text="${wedWebtoon.title}">제목</h5>
+                                                <small class="text-muted" th:text="${wedWebtoon.author}">작가</small>
                                             </div>
                                         </div>
 
@@ -150,15 +163,15 @@
                         <div class="tab-pane fade" id="thu" role="tabpanel" aria-labelledby="thu-tab">
 
                             <div class="row pt-4">
-                                <th:block th:each="thuNaverWebtoon : ${thuNaverWebtoons}">
+                                <th:block th:each="thuWebtoon : ${thuWebtoons}">
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${thuNaverWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <img th:src="@{${thuWebtoon.img}}" class="card-img-top" alt="no image">
 
                                             <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${thuNaverWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${thuNaverWebtoon.author}">작가</small>
+                                                <h5 class="card-title" th:text="${thuWebtoon.title}">제목</h5>
+                                                <small class="text-muted" th:text="${thuWebtoon.author}">작가</small>
                                             </div>
                                         </div>
 
@@ -172,15 +185,15 @@
                         <div class="tab-pane fade" id="fri" role="tabpanel" aria-labelledby="fri-tab">
 
                             <div class="row pt-4">
-                                <th:block th:each="friNaverWebtoon : ${friNaverWebtoons}">
+                                <th:block th:each="friWebtoon : ${friWebtoons}">
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${friNaverWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <img th:src="@{${friWebtoon.img}}" class="card-img-top" alt="no image">
 
                                             <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${friNaverWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${friNaverWebtoon.author}">작가</small>
+                                                <h5 class="card-title" th:text="${friWebtoon.title}">제목</h5>
+                                                <small class="text-muted" th:text="${friWebtoon.author}">작가</small>
                                             </div>
                                         </div>
 
@@ -194,15 +207,15 @@
                         <div class="tab-pane fade" id="sat" role="tabpanel" aria-labelledby="sat-tab">
 
                             <div class="row pt-4">
-                                <th:block th:each="satNaverWebtoon : ${satNaverWebtoons}">
+                                <th:block th:each="satWebtoon : ${satWebtoons}">
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${satNaverWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <img th:src="@{${satWebtoon.img}}" class="card-img-top" alt="no image">
 
                                             <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${satNaverWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${satNaverWebtoon.author}">작가</small>
+                                                <h5 class="card-title" th:text="${satWebtoon.title}">제목</h5>
+                                                <small class="text-muted" th:text="${satWebtoon.author}">작가</small>
                                             </div>
                                         </div>
 
@@ -216,15 +229,15 @@
                         <div class="tab-pane fade" id="sun" role="tabpanel" aria-labelledby="sun-tab">
 
                             <div class="row pt-4">
-                                <th:block th:each="sunNaverWebtoon : ${sunNaverWebtoons}">
+                                <th:block th:each="sunWebtoon : ${sunWebtoons}">
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${sunNaverWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <img th:src="@{${sunWebtoon.img}}" class="card-img-top" alt="no image">
 
                                             <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${sunNaverWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${sunNaverWebtoon.author}">작가</small>
+                                                <h5 class="card-title" th:text="${sunWebtoon.title}">제목</h5>
+                                                <small class="text-muted" th:text="${sunWebtoon.author}">작가</small>
                                             </div>
                                         </div>
 
@@ -238,15 +251,15 @@
                         <div class="tab-pane fade" id="finished" role="tabpanel" aria-labelledby="finished-tab">
 
                             <div class="row pt-4">
-                                <th:block th:each="finishedNaverWebtoon : ${finishedNaverWebtoons}">
+                                <th:block th:each="finishedWebtoon : ${finishedWebtoons}">
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${finishedNaverWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <img th:src="@{${finishedWebtoon.img}}" class="card-img-top" alt="no image">
 
                                             <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${finishedNaverWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${finishedNaverWebtoon.author}">작가</small>
+                                                <h5 class="card-title" th:text="${finishedWebtoon.title}">제목</h5>
+                                                <small class="text-muted" th:text="${finishedWebtoon.author}">작가</small>
                                             </div>
                                         </div>
 
@@ -260,15 +273,15 @@
                         <div class="tab-pane fade" id="daily" role="tabpanel" aria-labelledby="daily-tab">
 
                             <div class="row pt-4">
-                                <th:block th:each="dailyNaverWebtoon : ${dailyNaverWebtoons}">
+                                <th:block th:each="dailyWebtoon : ${dailyWebtoons}">
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${dailyNaverWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <img th:src="@{${dailyWebtoon.img}}" class="card-img-top" alt="no image">
 
                                             <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${dailyNaverWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${dailyNaverWebtoon.author}">작가</small>
+                                                <h5 class="card-title" th:text="${dailyWebtoon.title}">제목</h5>
+                                                <small class="text-muted" th:text="${dailyWebtoon.author}">작가</small>
                                             </div>
                                         </div>
 

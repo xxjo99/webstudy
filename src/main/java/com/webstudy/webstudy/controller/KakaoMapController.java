@@ -10,6 +10,6 @@ public class KakaoMapController {
 
     @GetMapping("/map")
     public String kakaoMap() {
-        return "/kakaomap/kakaomap";
+        return "/kakao_map/kakao_map";
     }
 }

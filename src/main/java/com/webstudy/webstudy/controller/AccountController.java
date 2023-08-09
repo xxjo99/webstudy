@@ -74,7 +74,7 @@ public class AccountController {
         List<CommentEntity> commentList = commentService.getCommentListByUserId(userId);
         model.addAttribute("commentList", commentList);
 
-        return "/account/userpage";
+        return "/account/user_page";
     }
 
 }

@@ -43,7 +43,7 @@ public class BoardController {
 
         model.addAttribute("boardList", boardList);
 
-        return "/board/boardlist";
+        return "/board/board_list";
     }
 
     // 게시글 상세페이지 조회
@@ -58,7 +58,7 @@ public class BoardController {
         List<CommentEntity> commentList = commentService.getCommentList(boardId);
         model.addAttribute("commentList", commentList);
 
-        return "/board/boarddetail";
+        return "/board/board_detail";
     }
 
     // 게시글 등록 페이지 이동
@@ -72,7 +72,7 @@ public class BoardController {
             model.addAttribute("board", board);
         }
 
-        return "/board/boardform";
+        return "/board/board_form";
     }
 
     // 게시글 등록
@@ -84,7 +84,7 @@ public class BoardController {
 
         // 올바르지 않은 입력값일시 에러발생
         if (bindingResult.hasErrors()) {
-            return "/board/boardform";
+            return "/board/board_form";
         }
 
         // 게시글 저장
