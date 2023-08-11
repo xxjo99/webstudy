@@ -1,5 +1,6 @@
 package com.webstudy.webstudy.controller;
 
+import com.webstudy.webstudy.dto.TodayWebtoonDTO;
 import com.webstudy.webstudy.dto.WebtoonDTO;
 import com.webstudy.webstudy.service.WebtoonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class WebtoonController {
     // 네이버웹툰
     @GetMapping("/naver")
     public String naverWebtoon(Model model) {
+        // 오늘의 웹툰
+        List<TodayWebtoonDTO> todayWebtoons = webtoonService.getTodayWebtoons();
+        model.addAttribute("todayWebtoons", todayWebtoons);
         // 월
         List<WebtoonDTO> monWebtoons = webtoonService.getWebtoons(0, 100, "naver", "mon");
         model.addAttribute("monWebtoons", monWebtoons);

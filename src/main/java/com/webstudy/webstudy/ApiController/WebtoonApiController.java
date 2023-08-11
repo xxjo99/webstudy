@@ -1,7 +1,11 @@
 package com.webstudy.webstudy.ApiController;
 
+import com.webstudy.webstudy.dto.TodayWebtoonDTO;
+import com.webstudy.webstudy.dto.TodayWebtoonDetailDTO;
+import com.webstudy.webstudy.dto.TodayWebtoonEpisodeDTO;
 import com.webstudy.webstudy.dto.WebtoonDTO;
 import com.webstudy.webstudy.service.WebtoonService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +25,7 @@ public class WebtoonApiController {
     @Autowired
     private WebtoonService webtoonService;
 
+    @Operation(summary = "웹툰 조회", description = "100개의 웹툰 조회")
     @GetMapping("/webtoons")
     public List<WebtoonDTO> getWebtoons(
             @Parameter(description = "페이지 번호") @DefaultValue("0") @RequestParam(required = false, defaultValue = "0") int page,
@@ -32,11 +37,30 @@ public class WebtoonApiController {
         return webtoonService.getWebtoons(page, perPage, service, updateDay);
     }
 
+    @Operation(summary = "웹툰 검색")
     @GetMapping("/search")
     public List<WebtoonDTO> searchWebtoon(
             @Parameter(description = "검색 키워드") @DefaultValue("-") String keyword)
     {
         return webtoonService.searchWebtoon(keyword);
+    }
+
+    @Operation(summary = "오늘의 웹툰 조회")
+    @GetMapping("/today")
+    public List<TodayWebtoonDTO> getTodayWebtoons() {
+        return webtoonService.getTodayWebtoons();
+    }
+
+    @Operation(summary = "웹툰 상세 페이지 조회")
+    @GetMapping("/detail")
+    public TodayWebtoonDetailDTO getTodayWebtoonDetail(@Parameter(description = "웹툰 아이디") @RequestParam String webtoonId) {
+        return webtoonService.getTodayWebtoonDetail(webtoonId);
+    }
+
+    @Operation(summary = "웹툰 에피소드 조회")
+    @GetMapping("/episodes")
+    public List<TodayWebtoonEpisodeDTO> getTodayWebtoonEpisodes(@Parameter(description = "웹툰 아이디") @RequestParam String webtoonId) {
+        return webtoonService.getTodayWebtoonEpisodes(webtoonId);
     }
 
 }

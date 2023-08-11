@@ -15,7 +15,7 @@
     <!-- webtoon CSS-->
     <link th:href="@{/css/webtoon/webtoon.css}" rel="stylesheet">
 
-    <title>웹툰</title>
+    <title>카카오 웹툰</title>
 
 </head>
 
@@ -23,41 +23,53 @@
 
     <!-- 헤더 -->
     <header>
-        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white">
+        <div class="navbar navbar-expand-lg p-3 px-md-4 mb-1 bg-white">
+            <!-- 타이틀 -->
+            <a class="title-link navbar-brand font-weight-bold mr-4" th:href="@{/webtoon/naver}">Webtoon</a>
 
-            <!-- 타이틀 및 이미지 -->
-            <a th:href="@{/webtoon/naver}"
-               class="title-link my-0 mr-md-auto font-weight-bold d-flex align-items-center">
-                <h5 class="my-0 mr-4 font-weight-bold">Webtoon</h5>
-                <div class="img-box mr-3">
-                    <img class="img" src="/images/webtoon/naver_webtoon.png">
-                </div>
-                <div class="img-box mr-3">
-                    <img class="img" src="/images/webtoon/kakao_webtoon.jpg">
-                </div>
-                <div class="img-box">
-                    <img class="img" src="/images/webtoon/kakao_page_webtoon.png">
-                </div>
-            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <!-- 웹툰 검색 -->
-            <form class="navbar-form navbar-right" method="GET" th:action="@{/webtoon/search}">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search Webtoon"
-                        aria-label="Input group example" aria-describedby="basic-addon1" id="keyword" name="keyword"
-                        th:value="${param.keyword}">
+                <ul class="navbar-nav mr-auto">
+                    <div class="img-box mr-1">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/webtoon/naver}"><img class="img"
+                                    src="/images/webtoon/naver_webtoon.png"></a>
+                        </li>
+                    </div>
 
-                    <span class="input-group-text" id="basic-addon1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-search" viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
-                            </path>
-                        </svg>
-                    </span>
-                </div>
-            </form>
+                    <div class="img-box mr-1">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/webtoon/kakao}"><img class="img"
+                                    src="/images/webtoon/kakao_webtoon.jpg"></a>
+                        </li>
+                    </div>
 
+                    <div class="img-box">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/webtoon/kakao-page}"><img class="img"
+                                    src="/images/webtoon/kakao_page_webtoon.png"></a>
+                        </li>
+                    </div>
+                </ul>
+
+                <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/webtoon/search}">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search Webtoon"
+                            aria-label="Input group example" aria-describedby="basic-addon1" id="keyword" name="keyword"
+                            th:value="${param.keyword}">
+
+                        <span class="input-group-text" id="basic-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+                </form>
+
+            </div>
         </div>
     </header>
 
@@ -99,12 +111,15 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${monWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <a th:href="@{${'https://webtoon.kakao.com/content/' + #strings.replace(monWebtoon.title, ' ', '-') + '/' + monWebtoon.webtoonId}}"
+                                                target="_blank">
+                                                <img th:src="@{${monWebtoon.img}}" class="card-img-top" alt="no image">
 
-                                            <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${monWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${monWebtoon.author}">작가</small>
-                                            </div>
+                                                <div class="card-body card-title">
+                                                    <h5 class="card-title" th:text="${monWebtoon.title}">제목</h5>
+                                                    <small class="text-muted" th:text="${monWebtoon.author}">작가</small>
+                                                </div>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -121,12 +136,15 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${tueWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <a th:href="@{${'https://webtoon.kakao.com/content/' + #strings.replace(tueWebtoon.title, ' ', '-') + '/' + tueWebtoon.webtoonId}}"
+                                                target="_blank">
+                                                <img th:src="@{${tueWebtoon.img}}" class="card-img-top" alt="no image">
 
-                                            <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${tueWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${tueWebtoon.author}">작가</small>
-                                            </div>
+                                                <div class="card-body card-title">
+                                                    <h5 class="card-title" th:text="${tueWebtoon.title}">제목</h5>
+                                                    <small class="text-muted" th:text="${tueWebtoon.author}">작가</small>
+                                                </div>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -143,12 +161,15 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${wedWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <a th:href="@{${'https://webtoon.kakao.com/content/' + #strings.replace(wedWebtoon.title, ' ', '-') + '/' + wedWebtoon.webtoonId}}"
+                                                target="_blank">
+                                                <img th:src="@{${wedWebtoon.img}}" class="card-img-top" alt="no image">
 
-                                            <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${wedWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${wedWebtoon.author}">작가</small>
-                                            </div>
+                                                <div class="card-body card-title">
+                                                    <h5 class="card-title" th:text="${wedWebtoon.title}">제목</h5>
+                                                    <small class="text-muted" th:text="${wedWebtoon.author}">작가</small>
+                                                </div>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -165,12 +186,15 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${thuWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <a th:href="@{${'https://webtoon.kakao.com/content/' + #strings.replace(thuWebtoon.title, ' ', '-') + '/' + thuWebtoon.webtoonId}}"
+                                                target="_blank">
+                                                <img th:src="@{${thuWebtoon.img}}" class="card-img-top" alt="no image">
 
-                                            <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${thuWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${thuWebtoon.author}">작가</small>
-                                            </div>
+                                                <div class="card-body card-title">
+                                                    <h5 class="card-title" th:text="${thuWebtoon.title}">제목</h5>
+                                                    <small class="text-muted" th:text="${thuWebtoon.author}">작가</small>
+                                                </div>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -187,12 +211,15 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${friWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <a th:href="@{${'https://webtoon.kakao.com/content/' + #strings.replace(friWebtoon.title, ' ', '-') + '/' + friWebtoon.webtoonId}}"
+                                                target="_blank">
+                                                <img th:src="@{${friWebtoon.img}}" class="card-img-top" alt="no image">
 
-                                            <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${friWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${friWebtoon.author}">작가</small>
-                                            </div>
+                                                <div class="card-body card-title">
+                                                    <h5 class="card-title" th:text="${friWebtoon.title}">제목</h5>
+                                                    <small class="text-muted" th:text="${friWebtoon.author}">작가</small>
+                                                </div>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -209,12 +236,15 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${satWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <a th:href="@{${'https://webtoon.kakao.com/content/' + #strings.replace(satWebtoon.title, ' ', '-') + '/' + satWebtoon.webtoonId}}"
+                                                target="_blank">
+                                                <img th:src="@{${satWebtoon.img}}" class="card-img-top" alt="no image">
 
-                                            <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${satWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${satWebtoon.author}">작가</small>
-                                            </div>
+                                                <div class="card-body card-title">
+                                                    <h5 class="card-title" th:text="${satWebtoon.title}">제목</h5>
+                                                    <small class="text-muted" th:text="${satWebtoon.author}">작가</small>
+                                                </div>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -231,12 +261,15 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${sunWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <a th:href="@{${'https://webtoon.kakao.com/content/' + #strings.replace(sunWebtoon.title, ' ', '-') + '/' + sunWebtoon.webtoonId}}"
+                                                target="_blank">
+                                                <img th:src="@{${sunWebtoon.img}}" class="card-img-top" alt="no image">
 
-                                            <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${sunWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${sunWebtoon.author}">작가</small>
-                                            </div>
+                                                <div class="card-body card-title">
+                                                    <h5 class="card-title" th:text="${sunWebtoon.title}">제목</h5>
+                                                    <small class="text-muted" th:text="${sunWebtoon.author}">작가</small>
+                                                </div>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -253,12 +286,15 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${finishedWebtoon.img}}" class="card-img-top" alt="no image">
+                                            <a th:href="@{${'https://webtoon.kakao.com/content/' + #strings.replace(finishedWebtoon.title, ' ', '-') + '/' + finishedWebtoon.webtoonId}}"
+                                                target="_blank">
+                                                <img th:src="@{${finishedWebtoon.img}}" class="card-img-top" alt="no image">
 
-                                            <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${finishedWebtoon.title}">제목</h5>
-                                                <small class="text-muted" th:text="${finishedWebtoon.author}">작가</small>
-                                            </div>
+                                                <div class="card-body card-title">
+                                                    <h5 class="card-title" th:text="${finishedWebtoon.title}">제목</h5>
+                                                    <small class="text-muted" th:text="${finishedWebtoon.author}">작가</small>
+                                                </div>
+                                            </a>
                                         </div>
 
                                     </div>

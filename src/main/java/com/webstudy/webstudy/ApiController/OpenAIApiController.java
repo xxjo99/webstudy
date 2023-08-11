@@ -2,6 +2,7 @@ package com.webstudy.webstudy.ApiController;
 
 import com.webstudy.webstudy.dto.ChatGPTRequest;
 import com.webstudy.webstudy.dto.ChatGPTResponse;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,6 +29,7 @@ public class OpenAIApiController {
     private RestTemplate restTemplate;
 
     @GetMapping("/chat")
+    @Operation(summary = "ChatGPT 응답")
     public String chat(@RequestParam("prompt") String prompt) {
         ChatGPTRequest request = new ChatGPTRequest(model, prompt);
         ChatGPTResponse chatGptResponse = restTemplate.postForObject(apiUrl, request, ChatGPTResponse.class);
