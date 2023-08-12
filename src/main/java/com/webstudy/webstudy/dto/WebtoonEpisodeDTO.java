@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TodayWebtoonEpisodeDTO {
+public class WebtoonEpisodeDTO {
     private String thumb; // 썸네일 주소
     private String id; // 에피소드 아이디
     private String title; // 에피소드 제목

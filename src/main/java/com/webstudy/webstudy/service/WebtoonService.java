@@ -3,8 +3,8 @@ package com.webstudy.webstudy.service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.webstudy.webstudy.dto.TodayWebtoonDTO;
-import com.webstudy.webstudy.dto.TodayWebtoonDetailDTO;
-import com.webstudy.webstudy.dto.TodayWebtoonEpisodeDTO;
+import com.webstudy.webstudy.dto.WebtoonDetailDTO;
+import com.webstudy.webstudy.dto.WebtoonEpisodeDTO;
 import com.webstudy.webstudy.dto.WebtoonDTO;
 import org.springframework.stereotype.Service;
 
@@ -197,7 +197,7 @@ public class WebtoonService {
     }
 
     // 웹툰 상세 조회
-    public TodayWebtoonDetailDTO getTodayWebtoonDetail(String webtoonId) {
+    public WebtoonDetailDTO getWebtoonDetail(String webtoonId) {
         try {
             // 주소 구성
             URI uri = new URI(BASE_URL_NOMARD + "/" + webtoonId);
@@ -210,7 +210,7 @@ public class WebtoonService {
             JsonNode rootNode = objectMapper.readTree(jsonResponse);
 
             // 객체로 변환 후 반환
-            return objectMapper.treeToValue(rootNode, TodayWebtoonDetailDTO.class);
+            return objectMapper.treeToValue(rootNode, WebtoonDetailDTO.class);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -218,7 +218,7 @@ public class WebtoonService {
     }
 
     // 웹툰 에피소드 조회
-    public List<TodayWebtoonEpisodeDTO> getTodayWebtoonEpisodes(String webtoonId) {
+    public List<WebtoonEpisodeDTO> getWebtoonEpisodes(String webtoonId) {
         try {
             // 주소 구성
             URI uri = new URI(BASE_URL_NOMARD + "/" + webtoonId + "/episodes");
@@ -231,9 +231,9 @@ public class WebtoonService {
             JsonNode rootNode = objectMapper.readTree(jsonResponse);
 
             // 객체로 변환
-            List<TodayWebtoonEpisodeDTO> todayWebtoonEpisodes = new ArrayList<>();
+            List<WebtoonEpisodeDTO> todayWebtoonEpisodes = new ArrayList<>();
             for (JsonNode webtoonNode : rootNode) {
-                TodayWebtoonEpisodeDTO episode = new TodayWebtoonEpisodeDTO();
+                WebtoonEpisodeDTO episode = new WebtoonEpisodeDTO();
 
                 episode.setThumb(webtoonNode.path("thumb").asText());
                 episode.setId(webtoonNode.path("id").asText());

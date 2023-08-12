@@ -1,6 +1,8 @@
 package com.webstudy.webstudy.controller;
 
 import com.webstudy.webstudy.dto.TodayWebtoonDTO;
+import com.webstudy.webstudy.dto.WebtoonDetailDTO;
+import com.webstudy.webstudy.dto.WebtoonEpisodeDTO;
 import com.webstudy.webstudy.dto.WebtoonDTO;
 import com.webstudy.webstudy.service.WebtoonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,4 +127,19 @@ public class WebtoonController {
         model.addAttribute("searchWebtoonList", searchWebtoonList);
         return "/webtoon/search_webtoon";
     }
+
+    // 네이버웹툰 에피소드
+    @GetMapping("/naver/episode")
+    public String naverWebtoonEpisode(@RequestParam String webtoonId, Model model) {
+        // 웹툰 정보
+        WebtoonDetailDTO webtoon = webtoonService.getWebtoonDetail(webtoonId);
+        model.addAttribute("webtoon", webtoon);
+
+        // 에피소드 리스트
+        List<WebtoonEpisodeDTO> episodes = webtoonService.getWebtoonEpisodes(webtoonId);
+        model.addAttribute("episodes", episodes);
+
+        return "/webtoon/naver_webtoon_episodes";
+    }
+
 }

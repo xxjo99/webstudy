@@ -1,7 +1,7 @@
 package com.webstudy.webstudy;
 
-import com.webstudy.webstudy.dto.TodayWebtoonDetailDTO;
-import com.webstudy.webstudy.dto.TodayWebtoonEpisodeDTO;
+import com.webstudy.webstudy.dto.WebtoonDetailDTO;
+import com.webstudy.webstudy.dto.WebtoonEpisodeDTO;
 import com.webstudy.webstudy.service.WebtoonService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +17,15 @@ class WebstudyApplicationTests {
 
 	@Test
 	void getTodayWebtoonDetail() {
-		TodayWebtoonDetailDTO todayWebtoonDetailDTO = webtoonService.getTodayWebtoonDetail("790713");
-		System.out.println(todayWebtoonDetailDTO.getTitle());
+		WebtoonDetailDTO webtoonDetailDTO = webtoonService.getWebtoonDetail("790713");
+		System.out.println(webtoonDetailDTO.getTitle());
 	}
 
 	@Test
 	void getTodayWebtoonEpisodes() {
-		List<TodayWebtoonEpisodeDTO> todayWebtoonEpisodes = webtoonService.getTodayWebtoonEpisodes("790713");
+		List<WebtoonEpisodeDTO> todayWebtoonEpisodes = webtoonService.getWebtoonEpisodes("790713");
 
-		for (TodayWebtoonEpisodeDTO todayWebtoonEpisode : todayWebtoonEpisodes) {
+		for (WebtoonEpisodeDTO todayWebtoonEpisode : todayWebtoonEpisodes) {
 			System.out.println(todayWebtoonEpisode);
 		}
 	}

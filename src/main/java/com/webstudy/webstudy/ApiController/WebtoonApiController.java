@@ -1,8 +1,8 @@
 package com.webstudy.webstudy.ApiController;
 
 import com.webstudy.webstudy.dto.TodayWebtoonDTO;
-import com.webstudy.webstudy.dto.TodayWebtoonDetailDTO;
-import com.webstudy.webstudy.dto.TodayWebtoonEpisodeDTO;
+import com.webstudy.webstudy.dto.WebtoonDetailDTO;
+import com.webstudy.webstudy.dto.WebtoonEpisodeDTO;
 import com.webstudy.webstudy.dto.WebtoonDTO;
 import com.webstudy.webstudy.service.WebtoonService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -53,14 +53,14 @@ public class WebtoonApiController {
 
     @Operation(summary = "웹툰 상세 페이지 조회")
     @GetMapping("/detail")
-    public TodayWebtoonDetailDTO getTodayWebtoonDetail(@Parameter(description = "웹툰 아이디") @RequestParam String webtoonId) {
-        return webtoonService.getTodayWebtoonDetail(webtoonId);
+    public WebtoonDetailDTO getTodayWebtoonDetail(@Parameter(description = "웹툰 아이디") @RequestParam String webtoonId) {
+        return webtoonService.getWebtoonDetail(webtoonId);
     }
 
     @Operation(summary = "웹툰 에피소드 조회")
     @GetMapping("/episodes")
-    public List<TodayWebtoonEpisodeDTO> getTodayWebtoonEpisodes(@Parameter(description = "웹툰 아이디") @RequestParam String webtoonId) {
-        return webtoonService.getTodayWebtoonEpisodes(webtoonId);
+    public List<WebtoonEpisodeDTO> getTodayWebtoonEpisodes(@Parameter(description = "웹툰 아이디") @RequestParam String webtoonId) {
+        return webtoonService.getWebtoonEpisodes(webtoonId);
     }
 
 }

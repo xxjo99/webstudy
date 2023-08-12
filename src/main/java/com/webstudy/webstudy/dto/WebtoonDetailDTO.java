@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TodayWebtoonDetailDTO {
+public class WebtoonDetailDTO {
     private String title; // 웹툰 제목
     private String about; // 웹툰 정보
     private String genre; // 웹툰 장르

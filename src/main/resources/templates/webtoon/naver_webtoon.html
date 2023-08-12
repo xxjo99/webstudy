@@ -115,11 +115,14 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <img th:src="@{${todayWebtoon.thumb}}" class="card-img-top" alt="no image">
+                                            <a th:href="@{/webtoon/naver/episode(webtoonId=${todayWebtoon.webtoonId})}">
+                                                <img th:src="@{${todayWebtoon.thumb}}" class="card-img-top"
+                                                    alt="no image">
 
-                                            <div class="card-body card-title">
-                                                <h5 class="card-title" th:text="${todayWebtoon.title}">제목</h5>
-                                            </div>
+                                                <div class="card-body card-title">
+                                                    <h5 class="card-title" th:text="${todayWebtoon.title}">제목</h5>
+                                                </div>
+                                            </a>
                                         </div>
 
                                     </div>
@@ -136,8 +139,7 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <a th:href="@{'https://comic.naver.com/webtoon/list?titleId=' + ${monWebtoon.webtoonId}}"
-                                                target="_blank">
+                                            <a th:href="@{/webtoon/naver/episode(webtoonId=${monWebtoon.webtoonId})}">
                                                 <img th:src="@{${monWebtoon.img}}" class="card-img-top" alt="no image">
 
                                                 <div class="card-body card-title">
@@ -161,8 +163,7 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <a th:href="@{'https://comic.naver.com/webtoon/list?titleId=' + ${tueWebtoon.webtoonId}}"
-                                                target="_blank">
+                                            <a th:href="@{/webtoon/naver/episode(webtoonId=${tueWebtoon.webtoonId})}">
                                                 <img th:src="@{${tueWebtoon.img}}" class="card-img-top" alt="no image">
 
                                                 <div class="card-body card-title">
@@ -186,8 +187,7 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <a th:href="@{'https://comic.naver.com/webtoon/list?titleId=' + ${wedWebtoon.webtoonId}}"
-                                                target="_blank">
+                                            <a th:href="@{/webtoon/naver/episode(webtoonId=${wedWebtoon.webtoonId})}">
                                                 <img th:src="@{${wedWebtoon.img}}" class="card-img-top" alt="no image">
 
                                                 <div class="card-body card-title">
@@ -211,8 +211,7 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <a th:href="@{'https://comic.naver.com/webtoon/list?titleId=' + ${thuWebtoon.webtoonId}}"
-                                                target="_blank">
+                                            <a th:href="@{/webtoon/naver/episode(webtoonId=${thuWebtoon.webtoonId})}">
                                                 <img th:src="@{${thuWebtoon.img}}" class="card-img-top" alt="no image">
 
                                                 <div class="card-body card-title">
@@ -236,8 +235,7 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <a th:href="@{'https://comic.naver.com/webtoon/list?titleId=' + ${friWebtoon.webtoonId}}"
-                                                target="_blank">
+                                            <a th:href="@{/webtoon/naver/episode(webtoonId=${friWebtoon.webtoonId})}">
                                                 <img th:src="@{${friWebtoon.img}}" class="card-img-top" alt="no image">
 
                                                 <div class="card-body card-title">
@@ -261,8 +259,7 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <a th:href="@{'https://comic.naver.com/webtoon/list?titleId=' + ${satWebtoon.webtoonId}}"
-                                                target="_blank">
+                                            <a th:href="@{/webtoon/naver/episode(webtoonId=${satWebtoon.webtoonId})}">
                                                 <img th:src="@{${satWebtoon.img}}" class="card-img-top" alt="no image">
 
                                                 <div class="card-body card-title">
@@ -286,8 +283,7 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <a th:href="@{'https://comic.naver.com/webtoon/list?titleId=' + ${sunWebtoon.webtoonId}}"
-                                                target="_blank">
+                                            <a th:href="@{/webtoon/naver/episode(webtoonId=${sunWebtoon.webtoonId})}">
                                                 <img th:src="@{${sunWebtoon.img}}" class="card-img-top" alt="no image">
 
                                                 <div class="card-body card-title">
@@ -311,8 +307,7 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <a th:href="@{'https://comic.naver.com/webtoon/list?titleId=' + ${finishedWebtoon.webtoonId}}"
-                                                target="_blank">
+                                            <a th:href="@{/webtoon/naver/episode(webtoonId=${finishedWebtoon.webtoonId})}">
                                                 <img th:src="@{${finishedWebtoon.img}}" class="card-img-top"
                                                     alt="no image">
 
@@ -338,8 +333,7 @@
                                     <div class="col-lg-2 col-md-4 col-sm-6 col-12 mb-4">
 
                                         <div class="card card-rounded">
-                                            <a th:href="@{'https://comic.naver.com/webtoon/list?titleId=' + ${dailyWebtoon.webtoonId}}"
-                                                target="_blank">
+                                            <a th:href="@{/webtoon/naver/episode(webtoonId=${dailyWebtoon.webtoonId})}">
                                                 <img th:src="@{${dailyWebtoon.img}}" class="card-img-top"
                                                     alt="no image">
 
