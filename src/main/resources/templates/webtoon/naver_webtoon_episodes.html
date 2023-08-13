@@ -18,7 +18,8 @@
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;500;600;700;800&display=swap" rel="stylesheet">=    
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <title>네이버 웹툰</title>
 
@@ -26,17 +27,22 @@
 
 <body>
 
+
     <div class="info-div">
 
         <img class="img-box" th:src="@{${webtoon.thumb}}" alt="no image">
 
-        <div>
+        <div class="webtoon-info">
             <h2 class="webtoon-title" th:text="${webtoon.title}">웹툰</h2>
             <span class="webtoon-age" th:text="${webtoon.age}">나이</span>
             <p class="webtoon-about" th:text="${webtoon.about}">정보</p>
             <a class="webtoon-genre" th:text="${webtoon.genre}">장르</a>
         </div>
 
+    </div>
+
+    <div class="episode-list">
+        <div class="episode-size">총 [[${#lists.size(episodes)}]]화</div>
     </div>
 
 
