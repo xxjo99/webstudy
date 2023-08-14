@@ -129,7 +129,7 @@ public class WebtoonController {
     }
 
     // 네이버웹툰 에피소드
-    @GetMapping("/naver/episode")
+    @GetMapping("/naver/list")
     public String naverWebtoonEpisode(@RequestParam String webtoonId, Model model) {
         // 웹툰 정보
         WebtoonDetailDTO webtoon = webtoonService.getWebtoonDetail(webtoonId);

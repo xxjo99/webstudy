@@ -4,10 +4,10 @@ html {
 }
 
 body {
+    margin: 0;
     overflow-x: hidden;
     overflow-y: auto;
     min-height: 100vh;
-    margin: 0;
     padding: 0;
 }
 
@@ -23,10 +23,10 @@ body {
 }
 
 .card-title {
+    margin: 0;
     background-color: #333;
     color: white;
     font-weight: 600;
-    margin: 0;
 }
 
 .card-title h5.card-title {
@@ -34,10 +34,10 @@ body {
 }
 
 .card-author {
+    margin: 0;
     background-color: #333;
     color: white;
     font-weight: 100;
-    margin: 0;
 }
 
 .title-link {
