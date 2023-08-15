@@ -21,57 +21,7 @@
 
 <body>
 
-    <!-- 헤더 -->
-    <header>
-        <div class="navbar navbar-expand-lg p-3 px-md-4 mb-1 bg-white">
-            <!-- 타이틀 -->
-            <a class="title-link navbar-brand font-weight-bold mr-4" th:href="@{/webtoon/naver}">Webtoon</a>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <ul class="navbar-nav mr-auto">
-                    <div class="img-box mr-1">
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/webtoon/naver}"><img class="img"
-                                    src="/images/webtoon/naver_webtoon.png"></a>
-                        </li>
-                    </div>
-
-                    <div class="img-box mr-1">
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/webtoon/kakao}"><img class="img"
-                                    src="/images/webtoon/kakao_webtoon.jpg"></a>
-                        </li>
-                    </div>
-
-                    <div class="img-box">
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/webtoon/kakao-page}"><img class="img"
-                                    src="/images/webtoon/kakao_page_webtoon.png"></a>
-                        </li>
-                    </div>
-                </ul>
-
-                <form class="form-inline my-2 my-lg-0" method="GET" th:action="@{/webtoon/search}">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search Webtoon"
-                            aria-label="Input group example" aria-describedby="basic-addon1" id="keyword" name="keyword"
-                            th:value="${param.keyword}">
-
-                        <span class="input-group-text" id="basic-addon1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-search" viewBox="0 0 16 16">
-                                <path
-                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
-                                </path>
-                            </svg>
-                        </span>
-                    </div>
-                </form>
-
-            </div>
-        </div>
-    </header>
+    <th:block th:replace="~{/fragments/webtoon_header :: header}"></th:block>
 
     <section>
         <div class="row">
@@ -288,11 +238,13 @@
                                         <div class="card card-rounded">
                                             <a th:href="@{${'https://webtoon.kakao.com/content/' + #strings.replace(finishedWebtoon.title, ' ', '-') + '/' + finishedWebtoon.webtoonId}}"
                                                 target="_blank">
-                                                <img th:src="@{${finishedWebtoon.img}}" class="card-img-top" alt="no image">
+                                                <img th:src="@{${finishedWebtoon.img}}" class="card-img-top"
+                                                    alt="no image">
 
                                                 <div class="card-body card-title">
                                                     <h5 class="card-title" th:text="${finishedWebtoon.title}">제목</h5>
-                                                    <small class="text-muted" th:text="${finishedWebtoon.author}">작가</small>
+                                                    <small class="text-muted"
+                                                        th:text="${finishedWebtoon.author}">작가</small>
                                                 </div>
                                             </a>
                                         </div>

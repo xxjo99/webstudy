@@ -16,6 +16,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Service
@@ -250,6 +251,70 @@ public class WebtoonService {
             e.printStackTrace();
             return null;
         }
+    }
+
+    // 네이버 랜덤웹툰 10개 생성
+    public List<WebtoonDTO> getRandomNaverWebtoons() {
+        Random random = new Random();
+        int randomPage = random.nextInt(18);
+        try {
+            // 주소 구성
+            URI uri = new URI(BASE_URL + "?" +
+                    "page=" + randomPage +
+                    "&perPage=122" +
+                    "&service=naver");
+
+            // GET 요청 수행
+            String jsonResponse = performHttpGet(uri);
+
+            // JSON 응답 파싱
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode rootNode = objectMapper.readTree(jsonResponse);
+
+            // 필요한 데이터만 뽑아서 객체로 변환
+            List<WebtoonDTO> webtoons = new ArrayList<>();
+            for (JsonNode webtoonNode : rootNode.path("webtoons")) {
+                WebtoonDTO webtoon = new WebtoonDTO();
+
+                String webtoonId = webtoonNode.path("webtoonId").asText();
+                webtoonId = webtoonId.substring(webtoonId.length() - 6);
+                webtoon.setWebtoonId(webtoonId);
+
+                webtoon.setTitle(webtoonNode.path("title").asText());
+                webtoon.setAuthor(webtoonNode.path("author").asText());
+                webtoon.setUrl(webtoonNode.path("url").asText());
+                webtoon.setImg(webtoonNode.path("img").asText());
+                webtoon.setService(webtoonNode.path("service").asText());
+
+                List<String> updateDays = new ArrayList<>();
+                for (JsonNode updateNode : webtoonNode.path("updateDays")) {
+                    updateDays.add(updateNode.asText());
+                }
+                webtoon.setUpdateDays(updateDays);
+
+                webtoons.add(webtoon);
+            }
+
+            // 랜덤 웹툰 10개 생성 후 반환
+            return getRandomWebtoons(webtoons);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    // 랜덤 웹툰 생성
+    public List<WebtoonDTO> getRandomWebtoons(List<WebtoonDTO> webtoons) {
+        List<WebtoonDTO> randomWebtoons = new ArrayList<>();
+        Random random = new Random();
+
+        for (int i = 0; i < 10; i++) {
+            int randomIndex = random.nextInt(webtoons.size());
+            randomWebtoons.add(webtoons.remove(randomIndex));
+        }
+
+        return randomWebtoons;
     }
 
 }

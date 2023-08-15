@@ -63,4 +63,10 @@ public class WebtoonApiController {
         return webtoonService.getWebtoonEpisodes(webtoonId);
     }
 
+    @Operation(summary = "네이버 웹툰 랜덤으로 10개 생성")
+    @GetMapping("/naver/random")
+    public List<WebtoonDTO> getRandomNaverWebtoons() {
+        return webtoonService.getRandomNaverWebtoons();
+    }
+
 }

@@ -131,6 +131,9 @@ public class WebtoonController {
     // 네이버웹툰 에피소드
     @GetMapping("/naver/list")
     public String naverWebtoonEpisode(@RequestParam String webtoonId, Model model) {
+        // 웹툰 아이디
+        model.addAttribute("webtoonId", webtoonId);
+
         // 웹툰 정보
         WebtoonDetailDTO webtoon = webtoonService.getWebtoonDetail(webtoonId);
         model.addAttribute("webtoon", webtoon);
@@ -138,6 +141,10 @@ public class WebtoonController {
         // 에피소드 리스트
         List<WebtoonEpisodeDTO> episodes = webtoonService.getWebtoonEpisodes(webtoonId);
         model.addAttribute("episodes", episodes);
+
+        // 네이버 랜덤 웹툰
+        List<WebtoonDTO> randomWebtoons = webtoonService.getRandomNaverWebtoons();
+        model.addAttribute("randomWebtoons", randomWebtoons);
 
         return "/webtoon/naver_webtoon_episodes";
     }
