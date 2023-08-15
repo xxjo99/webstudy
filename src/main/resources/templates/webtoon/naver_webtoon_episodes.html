@@ -27,59 +27,84 @@
 
 <body>
 
-    <div class="info-div">
+    <div class="webtoon-container">
 
-        <img class="img-box" th:src="@{${webtoon.thumb}}" alt="no image">
+        <div class="webtoon">
+            <div class="info-div">
 
-        <div class="webtoon-info">
-            <h2 class="webtoon-title" th:text="${webtoon.title}">웹툰</h2>
-            <span class="webtoon-age" th:text="${webtoon.age}">나이</span>
-            <p class="webtoon-about" th:text="${webtoon.about}">정보</p>
-            <a class="webtoon-genre" th:text="${webtoon.genre}">장르</a>
-        </div>
+                <img class="thumb-box" th:src="@{${webtoon.thumb}}" alt="no image">
 
-    </div>
+                <div class="webtoon-info">
+                    <h2 class="webtoon-title" th:text="${webtoon.title}">웹툰</h2>
+                    <span class="webtoon-age" th:text="${webtoon.age}">나이</span>
+                    <p class="webtoon-about" th:text="${webtoon.about}">정보</p>
+                    <a class="webtoon-genre" th:text="${webtoon.genre}">장르</a>
+                </div>
 
-    <div class="episode-list">
-        <div class="episode-size">총 [[${#lists.size(episodes)}]]화</div>
+            </div>
 
-        <div style="clear: both;"></div>
+            <div class="episode-list">
+                <div class="episode-size">총 [[${#lists.size(episodes)}]]화</div>
 
-        <th:block th:each="episode : ${episodes}">
-            <a th:href="@{'https://comic.naver.com/webtoon/detail?titleId=' + ${webtoonId} + '&no=' + ${episode.id}}"
-                target="_blank">
-                <div class="episode">
-                    <img class="episode-img" th:src="@{${episode.thumb}}" alt="no image">
+                <div style="clear: both;"></div>
 
-                    <div class="episode-info">
-                        <span class="episode-title" th:text="${episode.title}">제목</span>
+                <th:block th:each="episode : ${episodes}">
+                    <a th:href="@{'https://comic.naver.com/webtoon/detail?titleId=' + ${webtoonId} + '&no=' + ${episode.id}}"
+                        target="_blank">
+                        <div class="episode">
+                            <img class="episode-img" th:src="@{${episode.thumb}}" alt="no image">
 
-                        <div class="episode-rating-date">
+                            <div class="episode-info">
+                                <span class="episode-title" th:text="${episode.title}">제목</span>
 
-                            <div class="episode-rating">
-                                <svg width="12" height="19" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M6.25 12.991a.529.529 0 0 0-.5 0l-2.578 1.384a.529.529 0 0 1-.753-.632l.882-2.682a.529.529 0 0 0-.17-.576L.596 8.438a.529.529 0 0 1 .299-.94l3.049-.191a.529.529 0 0 0 .457-.33L5.51 4.22a.529.529 0 0 1 .982 0l1.107 2.756c.077.19.255.318.458.33l3.049.192c.481.03.674.637.299.94l-2.535 2.047a.529.529 0 0 0-.17.576l.881 2.682a.529.529 0 0 1-.752.632L6.25 12.99Z"
-                                        fill="#999"></path>
-                                </svg>
-                                <span class="episode-rating" th:text="${episode.rating}">별점</span>
+                                <div class="episode-rating-date">
+
+                                    <div class="episode-rating">
+                                        <svg width="12" height="19" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                            aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M6.25 12.991a.529.529 0 0 0-.5 0l-2.578 1.384a.529.529 0 0 1-.753-.632l.882-2.682a.529.529 0 0 0-.17-.576L.596 8.438a.529.529 0 0 1 .299-.94l3.049-.191a.529.529 0 0 0 .457-.33L5.51 4.22a.529.529 0 0 1 .982 0l1.107 2.756c.077.19.255.318.458.33l3.049.192c.481.03.674.637.299.94l-2.535 2.047a.529.529 0 0 0-.17.576l.881 2.682a.529.529 0 0 1-.752.632L6.25 12.99Z"
+                                                fill="#999"></path>
+                                        </svg>
+                                        <span class="episode-rating" th:text="${episode.rating}">별점</span>
+                                    </div>
+
+                                    <span th:text="${episode.date}">업로드 날짜</span>
+                                </div>
+
                             </div>
 
-                            <span th:text="${episode.date}">업로드 날짜</span>
+                        </div>
+                    </a>
+
+                </th:block>
+
+            </div>
+
+        </div>
+
+        <div class="random-webtoons">
+            <div class="row">
+                <th:block th:each="webtoon : ${randomWebtoons}">
+                    <div class="col-sm-6 mb-4">
+
+                        <div class="card card-rounded">
+                            <a th:href="@{/webtoon/naver/list(webtoonId=${webtoon.webtoonId})}">
+                                <img th:src="@{${webtoon.img}}" class="card-img-top" alt="no image">
+
+                                <div class="card-body card-title">
+                                    <h5 class="card-title" th:text="${webtoon.title}">제목</h5>
+                                    <small class="text-muted" th:text="${webtoon.author}">작가</small>
+                                </div>
+                            </a>
                         </div>
 
                     </div>
-
-                </div>
-            </a>
-
-        </th:block>
-
-        <
+                </th:block>
+            </div>
+        </div>
 
     </div>
-
 
 
     <!-- Optional JavaScript -->
