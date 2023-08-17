@@ -53,7 +53,9 @@
 ![image](https://github.com/xxjo99/webstudy/assets/96373083/5e1f215c-6095-4db7-bd60-1062c615625a)
 
 - 웹툰 api
-![image](https://github.com/xxjo99/webstudy/assets/96373083/f7f0d17e-6597-4a25-8f99-a68fddf83f64)
+![image](https://github.com/xxjo99/webstudy/assets/96373083/f9931d5b-4ba8-49a4-80f5-8e6e24398fe8)
 https://github.com/HyeokjaeLee/korea-webtoon-api 해당 깃허브 참고
 - 네이버, 카카오, 카카오페이지별 웹툰 확인
 - 웹툰 검색
+- 웹툰 에피소드 확인 가능 (네이버 웹툰 한정, 최대 30개), 랜덤 웹툰 출력
+![image](https://github.com/xxjo99/webstudy/assets/96373083/09da6f31-9077-4b15-b86a-1350862fdf7f)

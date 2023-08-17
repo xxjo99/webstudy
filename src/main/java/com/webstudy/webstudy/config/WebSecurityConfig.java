@@ -39,6 +39,7 @@ public class WebSecurityConfig {
                                 "/test",
                                 "/api/webtoon/webtoons",
                                 "/webtoon/naver/episode").permitAll()
+                        .requestMatchers("/kakao/map").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
