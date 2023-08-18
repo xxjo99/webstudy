@@ -23,6 +23,8 @@ dependencies {
 	// spring security
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	testImplementation 'org.springframework.security:spring-security-test'
+	// OAuth
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	// jpa
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	// thymeleaf

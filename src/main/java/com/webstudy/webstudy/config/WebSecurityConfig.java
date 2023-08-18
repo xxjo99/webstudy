@@ -1,5 +1,6 @@
 package com.webstudy.webstudy.config;
 
+import com.webstudy.webstudy.oauth.OAuth2UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,9 @@ public class WebSecurityConfig {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private OAuth2UserService oAuth2UserService;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -37,14 +41,19 @@ public class WebSecurityConfig {
                                 "/contact",
                                 "/project",
                                 "/test",
-                                "/api/webtoon/webtoons",
-                                "/webtoon/naver/episode").permitAll()
+                                "/api/webtoon/webtoons").permitAll()
                         .requestMatchers("/kakao/map").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
                         .loginPage("/account/login")
                         .permitAll()
+                )
+                .oauth2Login(oauth2Login -> oauth2Login
+                        .loginPage("/account/login")
+                        .userInfoEndpoint(userInfo -> userInfo
+                                .userService(oAuth2UserService)
+                        )
                 )
                 .logout(LogoutConfigurer::permitAll);
 
@@ -70,5 +79,6 @@ public class WebSecurityConfig {
     public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 
 }

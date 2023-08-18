@@ -1,8 +1,8 @@
 .divider:after,
 .divider:before {
+    height: 1px;
     content: "";
     flex: 1;
-    height: 1px;
     background: #eee;
 }
 
